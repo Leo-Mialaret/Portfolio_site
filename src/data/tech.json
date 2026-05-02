@@ -4,10 +4,10 @@
       "title": "Cybersécurité",
       "skills": [
         { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
-        { "name": "Configuration firewall", "level": 3, "icon": "mdi:wall-fire" },
+        { "name": "Firewall", "level": 3, "icon": "mdi:wall-fire" },
         { "name": "Script bash", "level": 2, "icon": "mdi:bash" },
-        { "name": "Utilisation et paramétrage Linux", "level": 2, "icon": "devicon-plain:linux" },
-        { "name": "Sécurité systèmes et réseaux", "level": 3, "icon": "mdi:console-network-outline" }
+        { "name": "Utilisation Linux", "level": 2, "icon": "devicon-plain:linux" },
+        { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" }
       ]
     },
     {
@@ -21,17 +21,20 @@
     {
       "title": "Soft skills",
       "skills": [
-        { "name": "Anglais C2", "level": 3, "icon": "skill-icons:fastapi" },
-        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
-        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
+        { "name": "Anglais C2", "level": 3, "icon": "mdi:translate" },
+        { "name": "Sérieux", "level": 3, "icon": "mdi:account-star" },
+        { "name": "Relationnel", "level": 2, "icon": "mdi:account-multiple-check" },
+        { "name": "Consciencieux", "level": 2, "icon": "mdi:account-check" },
+        { "name": "Curieux", "level": 2, "icon": "mdi:account-search" }        
       ]
     },
     {
       "title": "Autre compétences",
       "skills": [
-        { "name": "Droit", "level": 2, "icon": "skill-icons:fastapi" },
-        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
-        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
+        { "name": "Droit", "level": 1, "icon": "mdi:scale-balance" },
+        { "name": "Physique", "level": 2, "icon": "mdi:magnet-on" },
+        { "name": "Physique nucléaire", "level": 3, "icon": "mdi:atom" },
+        { "name": "Volleyball", "level": 1, "icon": "mdi:volleyball" }
       ]
     }
   ]
