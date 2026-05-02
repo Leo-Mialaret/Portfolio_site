@@ -1,20 +1,29 @@
 [
   {
-    "title": "Awesome Website",
-    "description": "A high-performance, SEO-optimized web application built with modern frameworks to showcase technical expertise.",
+    "title": "Projet scolaire d'interaction graphique avec une base de données",
+    "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher, ...",
     "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind"],
-    "platforms": ["web"],
-    "link": "https://astro.build/themes/details/career-portfolio-data-driven-astro-ssg/",
-    "category": "Published Website"
+    "tech": ["Java", "SQL"],
+    "platforms": ["desktop-tower-monitor"],
+    "link": "",
+    "category": "Projet scolaire"
   },
   {
-    "title": "Demo Mobile App",
-    "description": "A high-performance mobile application built with modern frameworks to showcase technical expertise.",
+    "title": "Projet scolaire jeux vidéo",
+    "description": "Micro jeux 2D avec niveaux et améliorations",
     "images": ["astro-02.jpeg", "#"],
-    "tech": ["Flutter", "Dart", "REST API"],
-    "platforms": ["apple-ios", "android"],
-    "link": "https://github.com/nbakh16/career-portfolio-template",
+    "tech": ["cpp"],
+    "platforms": ["desktop-tower-monitor"],
+    "link": "",
+    "category": "Projet scolaire"
+  },
+  {
+    "title": "Base de données personelle",
+    "description": "Base de données à utilisation personelle pour trier mes habits, les tenues, les plus utilisés, ...",
+    "images": ["astro-02.jpeg", "#"],
+    "tech": ["SQL","C#"],
+    "platforms": ["desktop-tower-monitor"],
+    "link": "",
     "category": "Hobby"
   }
 ]
