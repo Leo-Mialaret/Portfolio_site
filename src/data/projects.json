@@ -2,7 +2,7 @@
   {
     "title": "Projet scolaire d'interaction graphique avec une base de données",
     "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher, ...",
-    "images": ["astro-01.webp", "astro-02.jpeg"],
+    "images": ["JavaDBhomepage.png", "#"],
     "tech": ["Java", "SQL"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
@@ -11,16 +11,25 @@
   {
     "title": "Projet scolaire jeux vidéo",
     "description": "Micro jeux 2D avec niveaux et améliorations",
-    "images": ["astro-02.jpeg", "#"],
+    "images": ["videogamewalking.gif", "#"],
     "tech": ["cpp"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
     "category": "Projet scolaire"
   },
   {
+    "title": "Projet scolaire de page web",
+    "description": "Page web pour parc d'attraction, j'ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.",
+    "images": ["css-table-templates.jpg", "1.3-HTML-table-CSS.png"],
+    "tech": ["html","CSS"],
+    "platforms": ["web"],
+    "link": "",
+    "category": "Hobby"
+  },
+  {
     "title": "Base de données personelle",
-    "description": "Base de données à utilisation personelle pour trier mes habits, les tenues, les plus utilisés, ...",
-    "images": ["astro-02.jpeg", "#"],
+    "description": "Base de données à utilisation personelle pour trier mes habits, les tenues, les plus utilisés, ... Visuel fourni à titre démonstratif.",
+    "images": ["3823.ListView.png", "#"],
     "tech": ["SQL","C#"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
