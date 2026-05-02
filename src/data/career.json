@@ -1,26 +1,27 @@
 [
   {
-    "company": "Demo Company",
-    "role": "Lead Software Engineer",
-    "period": "Oct 2025 - Present",
-    "type": "Full time job",
-    "description": "Leading cross-platform mobile development using Flutter and FastAPI. Focused on scalable system design and high-performance data processing.",
-    "skills": ["Leading", "Collaboration"]
-  },
-  {
-    "company": "Demo Company",
-    "role": "Full-stack Developer",
-    "period": "Sep 2023 - Sep 2025",
-    "type": "Full time job",
-    "description": "Specializing in Business Research Methods and Strategic HRM. Applying analytical frameworks to human capital management.",
-    "skills": ["React", "Node.js", "PostgreSQL", "Docker"]
-  },
-  {
-    "company": "Demo University of Tech",
-    "role": "BSc in Computer Science",
-    "period": "Jun 2020 - Jun 2024",
-    "type": "Student",
-    "description": "Specializing in Business Research Methods and Strategic HRM. Applying analytical frameworks to human capital management.",
-    "skills": ["C++", "OOP", "Problem Solving"]
+    "company": "BAC S",
+    "role": "Spécialité mathématiques",
+    "period": "Septembre 2019",
+    "type": "Examen",
+    "description": "J'ai obtenu mon BAC en 2019",
+    "skills": ["BAC", "Études", "Persévérance"]
   }
+  {
+    "company": "Université Paris-Saclay",
+    "role": "Étudiant en Physique",
+    "period": "Octobre 2019 - Juin 2024",
+    "type": "Études",
+    "description": "J'ai suivi des études de Physique, que je n'ai pu continuer au dela du L2 dû à des raisons de santé. Les options de physique nucléaires que j'ai toujours prise m'ont passionées.",
+    "skills": ["Aprentissage", "Physique","Université","Persévérance","Études"]
+  },
+  {
+    "company": "IUT d'Orsay",
+    "role": "Étudiant en BUT Informatique",
+    "period": "Sep 2024 - Présent",
+    "type": "Études",
+    "description": "Reconversion réussie en informatique, domaine qui me passionne depuis toujours et que j'aime. Je suis le parcours de cybersécurité.",
+    "skills": ["Informatique", "Cybersécurité", "Plateau du Moulon", "IUT d'Orsay"]
+  },
+  
 ]
