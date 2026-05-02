@@ -1,36 +1,38 @@
 {
   "categories": [
     {
-      "title": "Mobile Development",
+      "title": "Cybersécurité",
       "skills": [
-        { "name": "Flutter", "level": 3, "icon": "skill-icons:flutter-dark" },
-        { "name": "Dart", "level": 3, "icon": "skill-icons:dart-dark" },
-        { "name": "Kotlin", "level": 1, "icon": "skill-icons:kotlin-dark" }
+        { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
+        { "name": "Configuration firewall", "level": 3, "icon": "mdi:wall-fire" },
+        { "name": "Script bash", "level": 2, "icon": "skill-icons:bash" },
+        { "name": "Utilisation et paramétrage Linux", "level": 2, "icon": "skill-icons:linux" }
+        { "name": "Sécurité systèmes et réseaux", "level": 3, "icon": "mdi:console-network-outline" }
       ]
     },
     {
-      "title": "Frontend",
+      "title": "Informatique",
       "skills": [
-        { "name": "Astro", "level": 2, "icon": "skill-icons:astro" },
-        { "name": "HTML", "level": 2, "icon": "skill-icons:html" },
-        { "name": "CSS", "level": 2, "icon": "skill-icons:css" },
-        { "name": "Tailwind CSS", "level": 1, "icon": "skill-icons:tailwindcss-dark" }
+        { "name": "Dévellopement (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
+        { "name": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
+        { "name": "Gestion de bases de données/SQL", "level": 2, "icon": "skill-icons:sqlserver" }
       ]
     },
     {
-      "title": "Backend",
+      "title": "Soft skills",
       "skills": [
-        { "name": "FastAPI", "level": 2, "icon": "skill-icons:fastapi" },
+        { "name": "Anglais C2", "level": 3, "icon": "skill-icons:fastapi" },
         { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
         { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
       ]
     },
     {
-      "title": "Database",
+      "title": "Autre compétences",
       "skills": [
-        { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "PostgreSQL", "level": 2, "icon": "skill-icons:postgresql-dark" }
+        { "name": "Droit", "level": 2, "icon": "skill-icons:fastapi" },
+        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
+        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
       ]
-    }
+    },
   ]
 }
