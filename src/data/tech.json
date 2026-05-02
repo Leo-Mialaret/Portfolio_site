@@ -15,7 +15,7 @@
       "skills": [
         { "name": "Dévellopement (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
         { "name": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
-        { "name": "Gestion de bases de données/SQL", "level": 2, "icon": "skill-icons:sqlserver" }
+        { "name": "Gestion de bases de données/SQL", "level": 2, "icon": "mdi:database-search" }
       ]
     },
     {
