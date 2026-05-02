@@ -7,7 +7,7 @@
         { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" },
         { "name": "Firewall", "level": 2, "icon": "mdi:wall-fire" },
         { "name": "Utilisation Linux", "level": 2, "icon": "devicon-plain:linux" },
-        { "name": "Script bash", "level": 1, "icon": "mdi:bash" },
+        { "name": "Script bash", "level": 1, "icon": "mdi:bash" }
       ]
     },
     {
