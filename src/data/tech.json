@@ -4,10 +4,10 @@
       "title": "Cybersécurité",
       "skills": [
         { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
-        { "name": "Firewall", "level": 3, "icon": "mdi:wall-fire" },
-        { "name": "Script bash", "level": 2, "icon": "mdi:bash" },
+        { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" },
+        { "name": "Firewall", "level": 2, "icon": "mdi:wall-fire" },
         { "name": "Utilisation Linux", "level": 2, "icon": "devicon-plain:linux" },
-        { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" }
+        { "name": "Script bash", "level": 1, "icon": "mdi:bash" },
       ]
     },
     {
@@ -31,10 +31,10 @@
     {
       "title": "Autre compétences",
       "skills": [
-        { "name": "Droit", "level": 1, "icon": "mdi:scale-balance" },
-        { "name": "Physique", "level": 2, "icon": "mdi:magnet-on" },
         { "name": "Physique nucléaire", "level": 3, "icon": "mdi:atom" },
-        { "name": "Volleyball", "level": 1, "icon": "mdi:volleyball" }
+        { "name": "Physique", "level": 2, "icon": "mdi:magnet-on" },
+        { "name": "Volleyball", "level": 1, "icon": "mdi:volleyball" },
+        { "name": "Droit", "level": 1, "icon": "mdi:scale-balance" }
       ]
     }
   ]
