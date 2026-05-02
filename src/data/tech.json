@@ -6,7 +6,7 @@
         { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
         { "name": "Configuration firewall", "level": 3, "icon": "mdi:wall-fire" },
         { "name": "Script bash", "level": 2, "icon": "skill-icons:bash" },
-        { "name": "Utilisation et paramétrage Linux", "level": 2, "icon": "skill-icons:linux" }
+        { "name": "Utilisation et paramétrage Linux", "level": 2, "icon": "skill-icons:linux" },
         { "name": "Sécurité systèmes et réseaux", "level": 3, "icon": "mdi:console-network-outline" }
       ]
     },
