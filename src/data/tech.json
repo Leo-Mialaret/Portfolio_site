@@ -33,6 +33,6 @@
         { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
         { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
       ]
-    },
+    }
   ]
 }
