@@ -2,7 +2,7 @@
   {
     "title": "Projet scolaire d'interaction graphique avec une base de données",
     "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher, ...",
-    "images": ["JavaDBhomepage.png", "#"],
+    "images": ["JavaDBhomepage.png"],
     "tech": ["Java", "SQL"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
@@ -11,7 +11,7 @@
   {
     "title": "Projet scolaire jeux vidéo",
     "description": "Micro jeux 2D avec niveaux et améliorations",
-    "images": ["videogamewalking.gif", "#"],
+    "images": ["videogamewalking.gif"],
     "tech": ["cpp"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
@@ -29,7 +29,7 @@
   {
     "title": "Base de données personelle",
     "description": "Base de données à utilisation personelle pour trier mes habits, les tenues, les plus utilisés, ... Visuel fourni à titre démonstratif.",
-    "images": ["3823.ListView.png", "#"],
+    "images": ["3823.ListView.png"],
     "tech": ["SQL","C#"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",

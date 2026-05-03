@@ -1,6 +1,6 @@
 {
   "name": "Léo Mialaret",
-  "photoUrl": "Temp_portrait.jpg",
+  "photoUrl": "1771860924806.jpg",
   "intro": "Je recherche un stage d'informatique ou de cybersécurité pour Avril 2027, pour lequel je serais un étudiant sérieux, calme, mature et fiable.",
   "introHtml": "A brief, compelling introduction about who you are and what you do. Mention your core <span class='text-white font-bold'>philosophy</span>, your passion for building digital products, and your drive for creating <span class='text-white font-bold'>efficient</span>, <span class='text-white font-bold'>high-impact</span> solutions.",
   "webpageTitle": "Portfolio Mialaret",
@@ -16,7 +16,7 @@
     },
     {
       "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/l%C3%A9o-mialaret-7824a8384/",
+      "url": "https://www.linkedin.com/in/leo-mialaret/",
       "icon": "mdi:linkedin",
       "showInContact": true
     },
