@@ -1,0 +1,38 @@
+---
+---
+<button id="lang-toggle" aria-label="Switch language / Changer de langue">
+  <span class="i18n-fr">EN</span><span class="i18n-en">FR</span>
+</button>
+
+<style>
+  #lang-toggle {
+    background: transparent;
+    border: none;
+    color: var(--color-maintext);
+    cursor: pointer;
+    padding: 0.5rem;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+  #lang-toggle:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+  }
+</style>
+
+<script>
+  document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-lang') === 'fr' ? 'en' : 'fr';
+    document.documentElement.setAttribute('data-lang', next);
+    document.documentElement.lang = next;
+    localStorage.setItem('lang', next);
+  });
+</script>

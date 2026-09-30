@@ -1,72 +1,9 @@
 {
   "name": "Léo Mialaret",
   "photoUrl": "1771860924806.jpg",
-  "intro": "Étudiant en 2ème année à l’IUT d’Orsay en informatique, je cherche un stage de 8 à 12 semaines à effectuer entre mai et juillet 2027.",
+  "intro": {"fr":"Étudiant en 2ème année à l’IUT d’Orsay en informatique, je cherche un stage de 8 à 12 semaines à effectuer entre mai et juillet 2027.","en":"Second-year computer science student at IUT d'Orsay, looking for an 8 to 12-week internship between May and July 2027."},
   "introHtml": "Je suis une personne profondément curieuse et adaptable, qui fait preuve de résilience et de persévérance face aux défis.",
   "webpageTitle": "Portfolio Mialaret",
   "resumeUrl": "CV_Mialaret_stage_BUT2.pdf",
-
-  "_comment": "Add your social links below. Leave the 'url' empty to hide the icon. Set 'showInContact' to true or false to control if it appears in the Contact section.",
-  "socials": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/Leo-Mialaret",
-      "icon": "mdi:github",
-      "showInContact": true
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/leo-mialaret/",
-      "icon": "mdi:linkedin",
-      "showInContact": true
-    },
-    {
-      "name": "Discord",
-      "url": "https://discord.com/users/1259915337445408818",
-      "icon": "skill-icons:discord",
-      "showInContact": false
-    },
-    {
-      "name": "Behance",
-      "url": "#",
-      "icon": "devicon-plain:behance",
-      "showInContact": false
-    },
-    {
-      "name": "Email",
-      "url": "mailto:mialaret.leo.pro@gmail.com",
-      "icon": "mdi:email",
-      "showInContact": true
-    },
-    {
-      "name": "WhatsApp",
-      "url": "https://wa.me/33762624532",
-      "icon": "mdi:whatsapp",
-      "showInContact": true
-    },
-    {
-      "name": "Facebook",
-      "url": "#",
-      "icon": "mdi:facebook",
-      "showInContact": false
-    },
-    {
-      "name": "Messenger",
-      "url": "#",
-      "icon": "mdi:facebook-messenger",
-      "showInContact": false
-    },
-    {
-      "name": "Instagram",
-      "url": "#",
-      "icon": "mdi:instagram",
-      "showInContact": false
-    },
-    {
-      "name": "Twitter",
-      "url": "#",
-      "icon": "mdi:twitter",
-      "showInContact": false
-    }
-  ]
+  "socials": [{"name":"GitHub","url":"https://github.com/Leo-Mialaret","icon":"mdi:github","showInContact":true},{"name":"LinkedIn","url":"https://www.linkedin.com/in/leo-mialaret/","icon":"mdi:linkedin","showInContact":true},{"name":"Discord","url":"https://discord.com/users/1259915337445408818","icon":"skill-icons:discord","showInContact":false},{"name":"Behance","url":"#","icon":"devicon-plain:behance","showInContact":false},{"name":"Email","url":"mailto:mialaret.leo.pro@gmail.com","icon":"mdi:email","showInContact":true},{"name":"WhatsApp","url":"https://wa.me/33762624532","icon":"mdi:whatsapp","showInContact":true},{"name":"Facebook","url":"#","icon":"mdi:facebook","showInContact":false},{"name":"Messenger","url":"#","icon":"mdi:facebook-messenger","showInContact":false},{"name":"Instagram","url":"#","icon":"mdi:instagram","showInContact":false},{"name":"Twitter","url":"#","icon":"mdi:twitter","showInContact":false}]
 }

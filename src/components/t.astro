@@ -1,0 +1,10 @@
+---
+const { v, html = false } = Astro.props;
+const fr = typeof v === 'string' ? v : v.fr;
+const en = typeof v === 'string' ? v : v.en;
+---
+{fr === en
+  ? (html ? <Fragment set:html={fr} /> : fr)
+  : html
+    ? <><span class="i18n-fr" set:html={fr} /><span class="i18n-en" set:html={en} /></>
+    : <><span class="i18n-fr">{fr}</span><span class="i18n-en">{en}</span></>}

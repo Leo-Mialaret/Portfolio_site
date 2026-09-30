@@ -1,38 +1,6 @@
 [
-  {
-    "title": "Projet scolaire d'interaction graphique avec une base de données",
-    "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher.",
-    "images": ["JavaDBhomepage.png"],
-    "tech": ["Java", "SQL"],
-    "platforms": ["desktop-tower-monitor"],
-    "link": "",
-    "category": "Projet scolaire"
-  },
-  {
-    "title": "Projet scolaire jeux vidéo",
-    "description": "Micro-jeux 2D avec niveaux et améliorations",
-    "images": ["videogamewalking.gif"],
-    "tech": ["cpp"],
-    "platforms": ["desktop-tower-monitor"],
-    "link": "",
-    "category": "Projet scolaire"
-  },
-  {
-    "title": "Projet scolaire de page web",
-    "description": "Page web pour parc d'attraction, j'ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.",
-    "images": ["css-table-templates.jpg", "1.3-HTML-table-CSS.png"],
-    "tech": ["html", "CSS"],
-    "platforms": ["web"],
-    "link": "",
-    "category": "Projet scolaire"
-  },
-  {
-    "title": "Base de données personnelle",
-    "description": "Base de données à utilisation personnelle pour trier mes habits, mes tenues et les plus utilisés. Visuel fourni à titre démonstratif.",
-    "images": ["3823.ListView.png"],
-    "tech": ["SQL", "C#"],
-    "platforms": ["desktop-tower-monitor"],
-    "link": "",
-    "category": "Loisir"
-  }
+  {"title":{"fr":"Projet scolaire d'interaction graphique avec une base de données","en":"School project: graphical interface for a database"},"description":{"fr":"Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher.","en":"An easy-to-use application for adding and searching information in a simple, basic way."},"images":["JavaDBhomepage.png"],"tech":["Java","SQL"],"platforms":["desktop-tower-monitor"],"link":"","category":{"fr":"Projet scolaire","en":"School project"}},
+  {"title":{"fr":"Projet scolaire jeux vidéo","en":"School project: video game"},"description":{"fr":"Micro-jeux 2D avec niveaux et améliorations","en":"2D micro-games with levels and upgrades"},"images":["videogamewalking.gif"],"tech":["cpp"],"platforms":["desktop-tower-monitor"],"link":"","category":{"fr":"Projet scolaire","en":"School project"}},
+  {"title":{"fr":"Projet scolaire de page web","en":"School project: web page"},"description":{"fr":"Page web pour parc d'attraction, j'ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.","en":"Web page for an amusement park, with an animation built using HTML/CSS tables. Image provided for demonstration purposes."},"images":["css-table-templates.jpg","1.3-HTML-table-CSS.png"],"tech":["html","CSS"],"platforms":["web"],"link":"","category":{"fr":"Projet scolaire","en":"School project"}},
+  {"title":{"fr":"Base de données personnelle","en":"Personal database"},"description":{"fr":"Base de données à utilisation personnelle pour trier mes habits, mes tenues et les plus utilisés. Visuel fourni à titre démonstratif.","en":"A personal database to organize my clothes and outfits, and track the most worn. Image provided for demonstration purposes."},"images":["3823.ListView.png"],"tech":["SQL","C#"],"platforms":["desktop-tower-monitor"],"link":"","category":{"fr":"Loisir","en":"Hobby"}}
 ]

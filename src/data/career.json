@@ -1,26 +1,5 @@
 [
-  {
-    "company": "Spécialité mathématique",
-    "role": "BAC S",
-    "period": "Septembre 2019",
-    "type": "Examen",
-    "description": "J'ai obtenu mon BAC avec 1 mois de travail après plusieurs années de déscolarisation.",
-    "skills": ["BAC", "Études", "Persévérance"]
-  },
-  {
-    "company": "Université Paris-Saclay",
-    "role": "Étudiant en Physique",
-    "period": "Octobre 2019 - Juin 2024",
-    "type": "Études",
-    "description": "J'ai suivi des études de Physique, que je n'ai pu continuer au-delà du L2 dû à des raisons de santé. Les options de physique nucléaire que j'ai toujours prises m'ont passionné.",
-    "skills": ["Études", "Physique", "Université", "Persévérance"]
-  },
-  {
-    "company": "IUT d'Orsay",
-    "role": "Étudiant en BUT Informatique",
-    "period": "Septembre 2024 - Présent",
-    "type": "Études",
-    "description": "Reconversion réussie en informatique, domaine qui me passionne depuis toujours et que j'aime. Je suis le parcours de cybersécurité.",
-    "skills": ["Informatique", "Cybersécurité", "Plateau du Moulon", "IUT d'Orsay"]
-  }
+  {"company":{"fr":"Spécialité mathématique","en":"Mathematics specialty"},"role":{"fr":"BAC S","en":"Scientific baccalauréat (BAC S)"},"period":{"fr":"Septembre 2019","en":"September 2019"},"type":"Examen","description":{"fr":"J'ai obtenu mon BAC avec 1 mois de travail après plusieurs années de déscolarisation.","en":"I passed my baccalauréat after just 1 month of study, following several years out of school."},"skills":["BAC",{"fr":"Études","en":"Studies"},{"fr":"Persévérance","en":"Perseverance"}]},
+  {"company":{"fr":"Université Paris-Saclay","en":"Paris-Saclay University"},"role":{"fr":"Étudiant en Physique","en":"Physics student"},"period":{"fr":"Octobre 2019 - Juin 2024","en":"October 2019 - June 2024"},"type":"Études","description":{"fr":"J'ai suivi des études de Physique, que je n'ai pu continuer au-delà du L2 dû à des raisons de santé. Les options de physique nucléaire que j'ai toujours prises m'ont passionné.","en":"I studied Physics but could not continue beyond the second year (L2) for health reasons. The nuclear physics options I always chose were a real passion."},"skills":[{"fr":"Études","en":"Studies"},{"fr":"Physique","en":"Physics"},{"fr":"Université","en":"University"},{"fr":"Persévérance","en":"Perseverance"}]},
+  {"company":"IUT d'Orsay","role":{"fr":"Étudiant en BUT Informatique","en":"BUT Computer Science student"},"period":{"fr":"Septembre 2024 - Présent","en":"September 2024 - Present"},"type":"Études","description":{"fr":"Reconversion réussie en informatique, domaine qui me passionne depuis toujours et que j'aime. Je suis le parcours de cybersécurité.","en":"A successful career change into computer science, a field I have always loved. I am following the cybersecurity track."},"skills":[{"fr":"Informatique","en":"Computer science"},{"fr":"Cybersécurité","en":"Cybersecurity"},"Plateau du Moulon","IUT d'Orsay"]}
 ]
