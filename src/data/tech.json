@@ -29,7 +29,7 @@
       ]
     },
     {
-      "title": "Autre compétences",
+      "title": "Autres compétences",
       "skills": [
         { "name": "Physique nucléaire", "level": 3, "icon": "mdi:atom" },
         { "name": "Physique", "level": 2, "icon": "mdi:magnet-on" },
