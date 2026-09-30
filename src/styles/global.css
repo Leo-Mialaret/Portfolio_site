@@ -40,4 +40,15 @@
 ::-webkit-scrollbar-thumb:hover { background-color: color-mix(in srgb, var(--color-accent), transparent 25%); }
 
 /* Language switch */
-[data-lang="en"] .i18n-fr, [data-lang="fr"] .i18n-en { display: none; }
+.i18n-fr,
+.i18n-en {
+  display: inline;
+}
+
+[data-lang="en"] .i18n-fr {
+  display: none;
+}
+
+[data-lang="fr"] .i18n-en {
+  display: none;
+}
