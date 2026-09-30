@@ -141,9 +141,17 @@
     @apply absolute font-heading font-extralight select-none pointer-events-none leading-none;
     animation: fall linear forwards;
   }
-  
+
   .launching {
     animation: launch 0.5s ease-in forwards;
+  }
+
+  .skill {
+    min-width: max-content;
+  }
+
+  .skill-name {
+    white-space: nowrap;
   }
 }
 
