@@ -169,3 +169,23 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: color-mix(in srgb, var(--color-accent), transparent 25%);
 }
+
+@layer components {
+  .skill-card,
+  .skill,
+  .skill-content {
+    min-width: max-content;
+  }
+
+  .skill-card span,
+  .skill span,
+  .skill-name {
+    width: max-content;
+    max-width: none;
+    overflow: visible;
+    white-space: nowrap;
+    text-overflow: clip;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+}
