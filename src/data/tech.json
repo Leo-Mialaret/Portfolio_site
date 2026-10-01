@@ -5,27 +5,27 @@
       "skills": [
         { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
         { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" },
-        { "name": "Firewall", "level": 2, "icon": "mdi:wall-fire" },
+        { "name": "Pare-feu", "level": 2, "icon": "mdi:wall-fire" },
         { "name": "Utilisation Linux", "level": 2, "icon": "devicon-plain:linux" },
-        { "name": "Script bash", "level": 1, "icon": "mdi:bash" }
+        { "name": "Scripts Bash", "level": 1, "icon": "mdi:bash" }
       ]
     },
     {
       "title": "Informatique",
       "skills": [
-        { "name": "Dévelopement (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
+        { "name": "Développement (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
         { "name": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
         { "name": "Gestion de bases de données/SQL", "level": 2, "icon": "mdi:database-search" }
       ]
     },
     {
-      "title": "Soft skills",
+      "title": "Compétences humaines",
       "skills": [
         { "name": "Anglais C2", "level": 3, "icon": "mdi:translate" },
         { "name": "Sérieux", "level": 3, "icon": "mdi:account-star" },
         { "name": "Relationnel", "level": 2, "icon": "mdi:account-multiple-check" },
         { "name": "Consciencieux", "level": 2, "icon": "mdi:account-check" },
-        { "name": "Curieux", "level": 2, "icon": "mdi:account-search" }        
+        { "name": "Curieux", "level": 2, "icon": "mdi:account-search" }
       ]
     },
     {
