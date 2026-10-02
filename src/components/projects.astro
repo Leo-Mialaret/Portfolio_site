@@ -1,93 +1,47 @@
 ---
-import ProjectCard from './project-card.astro';
+import t from './t.astro';
 import projectsData from '../data/projects.json';
 ---
 
-<section id="projects" class="section-container overflow-hidden">
-  <div class="container mx-auto">
-    <div class="mb-16 project-header">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
-          <span class="text-accent">/</span> Projets
-        </h2>
-      <p class="text-subtext font-body text-sm max-w-md">
-        Quelques projets effectués dans un cadre personnel ou scolaire.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projectsData.map((project) => (
-        <ProjectCard project={project} />
-      ))}
-    </div>
-  </div>
+<section id="projects" class="projects">
+	<div class="container">
+		<t key="projects.title" tag="h2" class="section-title" />
+		<t key="projects.subtitle" tag="p" class="section-subtitle" />
+		
+		<div class="projects-grid">
+			<!-- Project cards would go here -->
+		</div>
+	</div>
 </section>
 
-
 <style>
-  /* Header Initial State */
-  .project-header {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  /* Cards Initial State */
-  .project-card {
-    opacity: 0; /* Ensuring cards start hidden too */
-    transform: translateY(20px) scale(0.95);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  /* Shared Revealed State */
-  .project-header.reveal,
-  .project-card.reveal {
-    opacity: 1 !important;
-    transform: translateY(0) scale(1);
-  }
+	.projects {
+		padding: 6rem 2rem;
+	}
+	
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.section-title {
+		font-size: clamp(2rem, 4vw, 3rem);
+		text-align: center;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
+	}
+	
+	.section-subtitle {
+		text-align: center;
+		color: var(--text-secondary);
+		font-size: 1.125rem;
+		max-width: 600px;
+		margin: 0 auto 3rem;
+	}
+	
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+	}
 </style>
-
-<script>
-  const initProjectReveal = () => {
-    const header = document.querySelector('.project-header');
-    const cards = document.querySelectorAll('.project-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-          
-          // Check if the intersecting element is the header
-          if (target.classList.contains('project-header')) {
-            target.classList.add('reveal');
-            observer.unobserve(target);
-          } 
-          // Check if the intersecting element is a project card
-          else if (target.classList.contains('project-card')) {
-            const index = Array.from(cards).indexOf(target);
-            
-            // Stagger effect based on row position (only for cards)
-            setTimeout(() => {
-              target.classList.add('reveal');
-            }, (index % 3) * 150);
-            
-            observer.unobserve(target);
-          }
-        }
-      });
-    }, { 
-      threshold: 0.15, 
-      rootMargin: '0px 0px -10px 0px' 
-    });
-
-    // Observe the header
-    if (header) observer.observe(header);
-    
-    // Observe all cards
-    cards.forEach(card => observer.observe(card));
-  };
-
-  window.addEventListener('load', initProjectReveal);
-
-  // Support for Astro View Transitions
-  document.addEventListener('astro:after-swap', initProjectReveal);
-</script>
