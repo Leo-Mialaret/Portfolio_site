@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon/components";
+import { Icon } from "astro-icon/components";
 import localData from "../data/home.json";
 ---
 
@@ -81,7 +81,7 @@ import localData from "../data/home.json";
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
+          const target = entry.target;
 
           if (target.classList.contains("contact-card")) {
             const index = Array.from(cards).indexOf(target);
