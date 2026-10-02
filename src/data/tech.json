@@ -2,39 +2,43 @@
   "categories": [
     {
       "title": "Cybersécurité",
+      "title_en": "Cybersecurity",
       "skills": [
-        { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
-        { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" },
-        { "name": "Pare-feu", "level": 2, "icon": "mdi:wall-fire" },
-        { "name": "Utilisation Linux", "level": 2, "icon": "devicon-plain:linux" },
-        { "name": "Scripts Bash", "level": 1, "icon": "mdi:bash" }
+        { "name": "Gestion de réseaux", "name_en": "Network management", "level": 3, "icon": "mdi:access-point-network" },
+        { "name": "Sécurité réseaux", "name_en": "Network security", "level": 3, "icon": "mdi:console-network-outline" },
+        { "name": "Pare-feu", "name_en": "Firewall", "level": 2, "icon": "mdi:wall-fire" },
+        { "name": "Utilisation Linux", "name_en": "Linux usage", "level": 2, "icon": "devicon-plain:linux" },
+        { "name": "Scripts Bash", "name_en": "Bash scripting", "level": 1, "icon": "mdi:bash" }
       ]
     },
     {
       "title": "Informatique",
+      "title_en": "Computer science",
       "skills": [
-        { "name": "Développement (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
-        { "name": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
-        { "name": "Gestion de bases de données/SQL", "level": 2, "icon": "mdi:database-search" }
+        { "name": "Développement (C++, C#, Java, Python)", "name_en": "Development (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
+        { "name": "HTML/CSS/Astro", "name_en": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
+        { "name": "Gestion de bases de données/SQL", "name_en": "Database management / SQL", "level": 2, "icon": "mdi:database-search" }
       ]
     },
     {
       "title": "Compétences humaines",
+      "title_en": "Soft skills",
       "skills": [
-        { "name": "Anglais C2", "level": 3, "icon": "mdi:translate" },
-        { "name": "Sérieux", "level": 3, "icon": "mdi:account-star" },
-        { "name": "Relationnel", "level": 2, "icon": "mdi:account-multiple-check" },
-        { "name": "Consciencieux", "level": 2, "icon": "mdi:account-check" },
-        { "name": "Curieux", "level": 2, "icon": "mdi:account-search" }
+        { "name": "Anglais C2", "name_en": "English C2", "level": 3, "icon": "mdi:translate" },
+        { "name": "Sérieux", "name_en": "Reliable", "level": 3, "icon": "mdi:account-star" },
+        { "name": "Relationnel", "name_en": "Interpersonal skills", "level": 2, "icon": "mdi:account-multiple-check" },
+        { "name": "Consciencieux", "name_en": "Thorough", "level": 2, "icon": "mdi:account-check" },
+        { "name": "Curieux", "name_en": "Curiosity", "level": 2, "icon": "mdi:account-search" }
       ]
     },
     {
       "title": "Autres compétences",
+      "title_en": "Other skills",
       "skills": [
-        { "name": "Physique nucléaire", "level": 3, "icon": "mdi:atom" },
-        { "name": "Physique", "level": 2, "icon": "mdi:magnet-on" },
-        { "name": "Volleyball", "level": 1, "icon": "mdi:volleyball" },
-        { "name": "Droit", "level": 1, "icon": "mdi:scale-balance" }
+        { "name": "Physique nucléaire", "name_en": "Nuclear physics", "level": 3, "icon": "mdi:atom" },
+        { "name": "Physique", "name_en": "Physics", "level": 2, "icon": "mdi:magnet-on" },
+        { "name": "Volleyball", "name_en": "Volleyball", "level": 1, "icon": "mdi:volleyball" },
+        { "name": "Droit", "name_en": "Law", "level": 1, "icon": "mdi:scale-balance" }
       ]
     }
   ]

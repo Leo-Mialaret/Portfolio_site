@@ -1,38 +1,54 @@
 [
   {
     "title": "Projet scolaire d'interaction graphique avec une base de données",
+    "title_en": "Academic graphical interface project with a database",
     "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher.",
+    "description_en": "An easy-to-use application designed to simply, in a basic way, add information or search for it.",
     "images": ["JavaDBhomepage.png"],
     "tech": ["Java", "SQL"],
+    "tech_en": ["Java", "SQL"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
-    "category": "Projet scolaire"
+    "category": "Projet scolaire",
+    "category_en": "Academic project"
   },
   {
     "title": "Projet scolaire jeux vidéo",
+    "title_en": "Academic video game project",
     "description": "Micro-jeux 2D avec niveaux et améliorations",
+    "description_en": "2D micro-games with levels and upgrades.",
     "images": ["videogamewalking.gif"],
     "tech": ["cpp"],
+    "tech_en": ["C++"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
-    "category": "Projet scolaire"
+    "category": "Projet scolaire",
+    "category_en": "Academic project"
   },
   {
     "title": "Projet scolaire de page web",
+    "title_en": "Academic web page project",
     "description": "Page web pour parc d'attraction, j'ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.",
+    "description_en": "A web page for an amusement park; I created an animation using HTML/CSS tables. Visual provided for demonstration purposes.",
     "images": ["css-table-templates.jpg", "1.3-HTML-table-CSS.png"],
     "tech": ["html", "CSS"],
+    "tech_en": ["HTML", "CSS"],
     "platforms": ["web"],
     "link": "",
-    "category": "Projet scolaire"
+    "category": "Projet scolaire",
+    "category_en": "Academic project"
   },
   {
     "title": "Base de données personnelle",
+    "title_en": "Personal database",
     "description": "Base de données à utilisation personnelle pour trier mes habits, mes tenues et les plus utilisés. Visuel fourni à titre démonstratif.",
+    "description_en": "A personal-use database to sort my clothes, my outfits, and the items I use most often. Visual provided for demonstration purposes.",
     "images": ["3823.ListView.png"],
     "tech": ["SQL", "C#"],
+    "tech_en": ["SQL", "C#"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
-    "category": "Loisir"
+    "category": "Loisir",
+    "category_en": "Personal project"
   }
 ]
