@@ -1,10 +1,18 @@
 ---
-const { v, html = false } = Astro.props;
-const fr = typeof v === 'string' ? v : v.fr;
-const en = typeof v === 'string' ? v : v.en;
+// Client-side translation component
+// Usage: <t key="home.title" /> or <t key="home.title" tag="h1" class="title" />
+interface Props {
+	key: string;
+	tag?: string;
+	class?: string;
+	html?: boolean;
+}
+
+const { key, tag = 'span', class: className = '', html = false } = Astro.props;
 ---
-{fr === en
-  ? (html ? <Fragment set:html={fr} /> : fr)
-  : html
-    ? <><span class="i18n-fr" set:html={fr} /><span class="i18n-en" set:html={en} /></>
-    : <><span class="i18n-fr">{fr}</span><span class="i18n-en">{en}</span></>}
+
+<{tag} 
+	data-i18n={key} 
+	class={className}
+	{...(html ? { 'data-i18n-html': '' } : {})}
+/>

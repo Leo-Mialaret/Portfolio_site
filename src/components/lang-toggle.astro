@@ -1,38 +1,34 @@
 ---
+// Language toggle component - client-side only
 ---
-<button id="lang-toggle" aria-label="Switch language / Changer de langue">
-  <span class="i18n-fr">EN</span><span class="i18n-en">FR</span>
+<button 
+	data-lang-toggle 
+	type="button"
+	class="lang-toggle"
+	aria-label="Switch language"
+	onclick="toggleLang()"
+>
+	EN
 </button>
 
 <style>
-  #lang-toggle {
-    background: transparent;
-    border: none;
-    color: var(--color-maintext);
-    cursor: pointer;
-    padding: 0.5rem;
-    min-width: 2.5rem;
-    height: 2.5rem;
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: background-color 0.2s ease;
-  }
-  #lang-toggle:hover {
-    background-color: var(--color-accent);
-    color: var(--color-background);
-  }
+	.lang-toggle {
+		background: transparent;
+		border: 1px solid currentColor;
+		border-radius: 4px;
+		padding: 0.25rem 0.5rem;
+		cursor: pointer;
+		font-size: 0.875rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+	
+	.lang-toggle:hover {
+		background: rgba(128, 128, 128, 0.1);
+	}
+	
+	.lang-toggle:focus {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
 </style>
-
-<script>
-  document.getElementById('lang-toggle')?.addEventListener('click', () => {
-    const next = document.documentElement.getAttribute('data-lang') === 'fr' ? 'en' : 'fr';
-    document.documentElement.setAttribute('data-lang', next);
-    document.documentElement.lang = next;
-    localStorage.setItem('lang', next);
-  });
-</script>

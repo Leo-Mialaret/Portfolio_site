@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "home": "Accueil | Home",
+    "career": "Parcours | Career",
+    "projects": "Projets | Projects",
+    "tech": "Technologies | Tech",
+    "contact": "Contact | Contact"
+  },
+  "home": {
+    "greeting": "Bonjour, je suis | Hello, I'm",
+    "name": "Léo Mialaret",
+    "title": "Développeur Full Stack | Full Stack Developer",
+    "subtitle": "Je conçois et développe des expériences numériques modernes et performantes | I design and develop modern, performant digital experiences",
+    "description": "Passionné par le développement web, je crée des applications complètes alliant esthétique et fonctionnalité. | Passionionate about web development, I create full applications combining aesthetics and functionality.",
+    "cta_primary": "Voir mes projets | View my projects",
+    "cta_secondary": "Me contacter | Contact me",
+    "scroll": "Défiler | Scroll"
+  },
+  "career": {
+    "title": "Mon Parcours | My Career",
+    "subtitle": "Expériences et formations qui ont façonné mon parcours | Experiences and education that shaped my journey",
+    "experience": "Expérience Professionnelle | Work Experience",
+    "education": "Formation | Education",
+    "present": "Présent | Present",
+    "description": "Description | Description"
+  },
+  "projects": {
+    "title": "Mes Projets | My Projects",
+    "subtitle": "Une sélection de mes réalisations récentes | A selection of my recent work",
+    "view_project": "Voir le projet | View project",
+    "github": "Code source | Source code",
+    "demo": "Démo | Demo",
+    "tech_stack": "Stack technique | Tech stack"
+  },
+  "tech": {
+    "title": "Technologies | Technologies",
+    "subtitle": "Les outils et technologies que j'utilise | The tools and technologies I use",
+    "frontend": "Frontend | Frontend",
+    "backend": "Backend | Backend",
+    "database": "Base de données | Database",
+    "tools": "Outils | Tools",
+    "languages": "Langages | Languages"
+  },
+  "contact": {
+    "title": "Contact | Contact",
+    "subtitle": "Discutons de votre prochain projet | Let's discuss your next project",
+    "description": "Je suis toujours ouvert à de nouvelles opportunités et collaborations. | I'm always open to new opportunities and collaborations.",
+    "email": "Email | Email",
+    "location": "Paris, France | Paris, France",
+    "social": "Réseaux Sociaux | Social Networks",
+    "send": "Envoyer | Send",
+    "name": "Nom | Name",
+    "subject": "Sujet | Subject",
+    "message": "Message | Message"
+  },
+  "lang": {
+    "fr": "FR",
+    "en": "EN",
+    "switch_to_fr": "Passer en français | Switch to French",
+    "switch_to_en": "Passer en anglais | Switch to English"
+  },
+  "theme": {
+    "toggle": "Changer le thème | Toggle theme",
+    "light": "Clair | Light",
+    "dark": "Sombre | Dark"
+  },
+  "footer": {
+    "copyright": "Tous droits réservés | All rights reserved",
+    "built_with": "Construit avec | Built with"
+  },
+  "common": {
+    "loading": "Chargement... | Loading...",
+    "error": "Erreur | Error",
+    "success": "Succès | Success",
+    "learn_more": "En savoir plus | Learn more",
+    "read_more": "Lire la suite | Read more"
+  }
+}
