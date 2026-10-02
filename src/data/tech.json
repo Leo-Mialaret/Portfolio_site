@@ -1,8 +1,9 @@
 {
-  "categories": [
-    {"title":{"fr":"Cybersécurité","en":"Cybersecurity"},"skills":[{"name":{"fr":"Gestion de réseaux","en":"Network management"},"level":3,"icon":"mdi:access-point-network"},{"name":{"fr":"Sécurité réseaux","en":"Network security"},"level":3,"icon":"mdi:console-network-outline"},{"name":{"fr":"Pare-feu","en":"Firewalls"},"level":2,"icon":"mdi:wall-fire"},{"name":{"fr":"Utilisation Linux","en":"Linux usage"},"level":2,"icon":"devicon-plain:linux"},{"name":{"fr":"Scripts Bash","en":"Bash scripting"},"level":1,"icon":"mdi:bash"}]},
-    {"title":{"fr":"Informatique","en":"Computer science"},"skills":[{"name":{"fr":"Développement (C++, C#, Java, Python)","en":"Development (C++, C#, Java, Python)"},"level":3,"icon":"skill-icons:cpp"},{"name":"HTML/CSS/Astro","level":1,"icon":"skill-icons:html"},{"name":{"fr":"Gestion de bases de données/SQL","en":"Database management/SQL"},"level":2,"icon":"mdi:database-search"}]},
-    {"title":{"fr":"Compétences humaines","en":"Soft skills"},"skills":[{"name":{"fr":"Anglais C2","en":"English C2"},"level":3,"icon":"mdi:translate"},{"name":{"fr":"Sérieux","en":"Reliable"},"level":3,"icon":"mdi:account-star"},{"name":{"fr":"Relationnel","en":"People skills"},"level":2,"icon":"mdi:account-multiple-check"},{"name":{"fr":"Consciencieux","en":"Conscientious"},"level":2,"icon":"mdi:account-check"},{"name":{"fr":"Curieux","en":"Curious"},"level":2,"icon":"mdi:account-search"}]},
-    {"title":{"fr":"Autres compétences","en":"Other skills"},"skills":[{"name":{"fr":"Physique nucléaire","en":"Nuclear physics"},"level":3,"icon":"mdi:atom"},{"name":{"fr":"Physique","en":"Physics"},"level":2,"icon":"mdi:magnet-on"},{"name":"Volleyball","level":1,"icon":"mdi:volleyball"},{"name":{"fr":"Droit","en":"Law"},"level":1,"icon":"mdi:scale-balance"}]}
-  ]
+	"title": "tech.title",
+	"subtitle": "tech.subtitle",
+	"frontend": "tech.frontend",
+	"backend": "tech.backend",
+	"database": "tech.database",
+	"tools": "tech.tools",
+	"languages": "tech.languages"
 }
