@@ -1,0 +1,276 @@
+diff --git a/src/layouts/Layout.astro b/src/layouts/Layout.astro
+--- a/src/layouts/Layout.astro
++++ b/src/layouts/Layout.astro
+@@
+-<!doctype html>
+-<html lang="en">
++<!doctype html>
++<html>
+@@
+-		<!-- THEME TOGGLE SCRIPT -->
++		<!-- THEME + LANGUAGE INIT -->
+ 		<script is:inline define:vars={{ baseTheme, defaultTheme }}>
+ 			const savedTheme = localStorage.getItem('theme');
++			const savedLang = localStorage.getItem('lang') || 'fr';
+ 
+ 			if (savedTheme && savedTheme.startsWith(baseTheme)) {
+ 				document.documentElement.setAttribute('data-theme', savedTheme);
+ 			} else {
+ 				document.documentElement.setAttribute('data-theme', defaultTheme);
+ 				localStorage.setItem('theme', defaultTheme);
+ 			}
++
++			document.documentElement.setAttribute('data-lang', savedLang);
++			document.documentElement.setAttribute('lang', savedLang);
+ 		</script>
+ diff --git a/src/styles/global.css b/src/styles/global.css
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@
+ ::-webkit-scrollbar-thumb:hover {
+   background-color: color-mix(in srgb, var(--color-accent), transparent 25%);
+ }
++
++html[data-lang="fr"] .i18n-en {
++  display: none;
++}
++
++html[data-lang="en"] .i18n-fr {
++  display: none;
++}
+ diff --git a/src/components/nav.astro b/src/components/nav.astro
+--- a/src/components/nav.astro
++++ b/src/components/nav.astro
+@@
+ interface NavItem {
+-  label: string;
++  labelFr: string;
++  labelEn: string;
+   href: string;
+   icon: string;
+ }
+ 
+ const navItems: NavItem[] = [
+   {
+-    label: "Accueil",
++    labelFr: "Accueil",
++    labelEn: "Home",
+     href: "#home",
+     icon: `mdi:home`,
+   },
+   {
+-    label: "Parcours",
++    labelFr: "Parcours",
++    labelEn: "Journey",
+     href: "#career",
+     icon: `mdi:work`,
+   },
+   {
+-    label: "Projets",
++    labelFr: "Projets",
++    labelEn: "Projects",
+     href: "#projects",
+     icon: `mdi:computer`,
+   },
+   {
+-    label: "Compétences",
++    labelFr: "Compétences",
++    labelEn: "Skills",
+     href: "#tech",
+     icon: `mdi:code-tags`,
+   },
+   {
+-    label: "Education",
+-    href: "#contact",
+-    icon: `mdi:message`,
+-  },
+-  {
+-    label: "Contact",
++    labelFr: "Contact",
++    labelEn: "Contact",
+     href: "#contact",
+     icon: `mdi:message`,
+   }
+ ];
+@@
+ <div id="theme-toggle-wrapper" class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content" style="animation-delay: 700ms;">
+   <ThemeToggle />
++  <button
++    id="lang-toggle"
++    type="button"
++    class="ml-2 px-3 py-1 rounded-full border border-accent/40 text-xs font-semibold text-accent bg-background/60 backdrop-blur-md hover:bg-accent hover:text-background transition-all"
++    aria-label="Changer de langue"
++  >
++    EN
++  </button>
+ </div>
+@@
+-            <span class="hidden md:inline-block">{item.label}</span>
+-            <span class="md:hidden text-xs">{item.label}</span>
++            <span class="hidden md:inline-block">
++              <span class="i18n-fr">{item.labelFr}</span>
++              <span class="i18n-en">{item.labelEn}</span>
++            </span>
++            <span class="md:hidden text-xs">
++              <span class="i18n-fr">{item.labelFr}</span>
++              <span class="i18n-en">{item.labelEn}</span>
++            </span>
+@@
+   const nav = document.getElementById("main-nav");
+   const themeWrapper = document.getElementById("theme-toggle-wrapper");
++  const langToggle = document.getElementById("lang-toggle");
++
++  function updateLangButton() {
++    const currentLang = document.documentElement.getAttribute("data-lang") || "fr";
++    if (langToggle) {
++      langToggle.textContent = currentLang === "fr" ? "EN" : "FR";
++      langToggle.setAttribute(
++        "aria-label",
++        currentLang === "fr" ? "Switch to English" : "Passer en français"
++      );
++    }
++  }
++
++  document.addEventListener("DOMContentLoaded", () => {
++    updateLangButton();
++
++    langToggle?.addEventListener("click", () => {
++      const current = document.documentElement.getAttribute("data-lang") || "fr";
++      const next = current === "fr" ? "en" : "fr";
++
++      document.documentElement.setAttribute("data-lang", next);
++      document.documentElement.setAttribute("lang", next);
++      localStorage.setItem("lang", next);
++
++      updateLangButton();
++    });
++  });
+ diff --git a/src/data/home.json b/src/data/home.json
+--- a/src/data/home.json
++++ b/src/data/home.json
+@@
+   "photoUrl": "1771860924806.jpg",
+   "intro": "Étudiant en 2ème année à l’IUT d’Orsay en informatique, je cherche un stage de 8 à 12 semaines à effectuer entre mai et juillet 2027.",
+   "introHtml": "Je suis une personne profondément curieuse et adaptable, qui fait preuve de résilience et de persévérance face aux défis.",
++  "intro_en": "Second-year Computer Science student at IUT d'Orsay, looking for an 8 to 12 week internship between May and July 2027.",
++  "introHtml_en": "I am a deeply curious and adaptable person, and I show resilience and perseverance when facing challenges.",
+   "webpageTitle": "Portfolio Mialaret",
+ diff --git a/src/components/home.astro b/src/components/home.astro
+--- a/src/components/home.astro
++++ b/src/components/home.astro
+@@
+ interface ProfileData {
+   name: string;
+   photoUrl: string;
+   intro: string;
+   introHtml: string;
++  intro_en?: string;
++  introHtml_en?: string;
+   resumeUrl: string;
+   socials: Social[];
+ }
+@@
+-const { name, photoUrl, intro, introHtml, resumeUrl, socials } = data;
++const { name, photoUrl, intro, introHtml, intro_en, introHtml_en, resumeUrl, socials } = data;
++const introFr = introHtml || intro;
++const introEn = introHtml_en || intro_en || introFr;
+@@
+   <div class="reveal-content" style="animation-delay: 200ms;">
+     <p class="font-body font-light text-gray leading-relaxed">
+-      Bonjour, je suis :
++      <span class="i18n-fr">Bonjour, je suis :</span>
++      <span class="i18n-en">Hi, I'm:</span>
+     </p>
+   </div>
+@@
+-  <p class="text-gray font-body text-lg leading-relaxed" set:html={introHtml} />
++  <div class="text-gray font-body text-lg leading-relaxed">
++    <p class="i18n-fr" set:html={introFr} />
++    <p class="i18n-en" set:html={introEn} />
++  </div>
+@@
+         <span class="text-[10px] text-subtext font-light whitespace-nowrap transition-all duration-300
+                    opacity-100 translate-y-0
+                    md:opacity-0 md:translate-y-1 md:group-hover:opacity-100 md:group-hover:translate-y-0">
+-          Downloads PDF file
++          <span class="i18n-fr">Télécharge le CV au format PDF</span>
++          <span class="i18n-en">Downloads the CV as a PDF file</span>
+         </span>
+ diff --git a/src/components/career.astro b/src/components/career.astro
+--- a/src/components/career.astro
++++ b/src/components/career.astro
+@@
+       <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+         <span class="text-accent">/</span>
+-        Parcours
++        <span class="i18n-fr">Parcours</span>
++        <span class="i18n-en">Journey</span>
+       </h2>
+       <p class="text-subtext font-body text-sm max-w-md pb-8">
+-        Un aperçu de mon parcours
++        <span class="i18n-fr">Un aperçu de mon parcours</span>
++        <span class="i18n-en">An overview of my journey</span>
+       </p>
+ diff --git a/src/components/projects.astro b/src/components/projects.astro
+--- a/src/components/projects.astro
++++ b/src/components/projects.astro
+@@
+       <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+         <span class="text-accent">/</span>
+-        Projets
++        <span class="i18n-fr">Projets</span>
++        <span class="i18n-en">Projects</span>
+       </h2>
+       <p class="text-subtext font-body text-sm max-w-md">
+-        Quelques projets effectués dans un cadre personnel ou scolaire.
++        <span class="i18n-fr">Quelques projets effectués dans un cadre personnel ou scolaire.</span>
++        <span class="i18n-en">A selection of projects completed in personal or academic settings.</span>
+       </p>
+ diff --git a/src/components/tech.astro b/src/components/tech.astro
+--- a/src/components/tech.astro
++++ b/src/components/tech.astro
+@@
+       <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+         <span class="text-accent">/</span>
+-        Compétences
++        <span class="i18n-fr">Compétences</span>
++        <span class="i18n-en">Skills</span>
+       </h2>
+       <p class="text-subtext font-body text-sm max-w-md">
+-        Un aperçu de mes compétences, organisées par domaine.
++        <span class="i18n-fr">Un aperçu de mes compétences, organisées par domaine.</span>
++        <span class="i18n-en">An overview of my skills, organised by area.</span>
+       </p>
+@@
+-      {[
+-        { label: "Utilisation autonome", level: 3 },
+-        { label: "Connaissances pratiques", level: 2 },
+-        { label: "Connaissances de base", level: 1 }
++      {[
++        { labelFr: "Utilisation autonome", labelEn: "Independent use", level: 3 },
++        { labelFr: "Connaissances pratiques", labelEn: "Practical knowledge", level: 2 },
++        { labelFr: "Connaissances de base", labelEn: "Basic knowledge", level: 1 }
+       ].map((item, index) => (
+@@
+-          <span class="text-[10px] uppercase tracking-wider text-subtext">{item.label}</span>
++          <span class="text-[10px] uppercase tracking-wider text-subtext">
++            <span class="i18n-fr">{item.labelFr}</span>
++            <span class="i18n-en">{item.labelEn}</span>
++          </span>
+         </div>
+       ))}
+ diff --git a/src/components/contact.astro b/src/components/contact.astro
+--- a/src/components/contact.astro
++++ b/src/components/contact.astro
+@@
+       <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+         <span class="text-accent">/</span>
+-        Me contacter
++        <span class="i18n-fr">Me contacter</span>
++        <span class="i18n-en">Get in touch</span>
+       </h2>
+       <p class="text-subtext font-body text-sm max-w-md">
+-        N'hésitez pas à me contacter. Je reste disponible pour échanger au sujet de nouveaux projets et d'opportunités professionnelles.
++        <span class="i18n-fr">N'hésitez pas à me contacter. Je reste disponible pour échanger au sujet de nouveaux projets et d'opportunités professionnelles.</span>
++        <span class="i18n-en">Feel free to contact me. I’m available to discuss new projects and professional opportunities.</span>
+       </p>
