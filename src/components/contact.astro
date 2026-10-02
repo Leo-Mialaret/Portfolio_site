@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
-import localData from '../data/home.json';
+import Icon from "astro-icon/components";
+import localData from "../data/home.json";
 ---
 
 <section id="contact" class="section-container">
@@ -13,24 +13,25 @@ import localData from '../data/home.json';
           <span class="i18n-en">Get in touch</span>
         </h2>
         <p class="text-subtext font-body text-sm max-w-md">
-          <span class="i18n-fr">
-            N'hésitez pas à me contacter. Je reste disponible pour échanger au sujet de nouveaux projets et d'opportunités professionnelles.
-          </span>
-          <span class="i18n-en">
-            Feel free to contact me. I’m available to discuss new projects and professional opportunities.
-          </span>
+          <span class="i18n-fr">N'hésitez pas à me contacter. Je reste disponible pour échanger au sujet de nouveaux projets et d'opportunités professionnelles.</span>
+          <span class="i18n-en">Feel free to get in touch. I’m available to discuss new projects and professional opportunities.</span>
         </p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         {localData.socials
-          .filter((social) => social.showInContact && social.url && social.url !== '#')
+          .filter((social) => social.showInContact && social.url && social.url.trim() !== "")
           .map((social) => (
-            <a href={social.url} target="_blank" rel="noopener noreferrer" class="contact-card opacity-0 group p-8 bg-accent/5 border border-accent/10 rounded-2xl hover:border-accent/40 hover:bg-accent/10 transition-all duration-300">
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card opacity-0 group p-8 bg-accent/5 border border-accent/10 rounded-2xl hover:border-accent/40 hover:bg-accent/10 transition-all duration-300"
+            >
               <Icon name={social.icon} class="w-10 h-10 text-accent mb-4 mx-auto group-hover:scale-110 transition-transform" />
               <h3 class="text-maintext font-bold mb-1">{social.name}</h3>
               <p class="text-subtext text-xs truncate px-2">
-                {social.url.replace('https://', '').replace('mailto:', '').replace('wa.me/', '')}
+                {social.url.replace("https://", "").replace("mailto:", "").replace("wa.me/", "")}
               </p>
             </a>
           ))}
@@ -42,21 +43,6 @@ import localData from '../data/home.json';
             <span class="i18n-fr">{localData.name} © 2026</span>
             <span class="i18n-en">{localData.name} © 2026</span>
           </p>
-          <!--
-          <div class="flex items-center flex-wrap justify-center gap-3 text-subtext text-xs font-body order-1 md:order-2">
-            <span>Built using</span>
-            <a href="https://astro.build/themes/details/career-portfolio-data-driven-astro-ssg/" target="_blank" rel="noopener noreferrer" class="text-maintext hover:text-accent transition-colors underline decoration-white/30 underline-offset-4 hover:decoration-accent">
-              Career Portfolio Theme
-            </a>
-            <span class="text-subtext hidden sm:inline">•</span>
-            <div class="flex gap-4">
-              <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors flex items-center gap-1.5 group">
-                <Icon name="skill-icons:astro" class="w-4 h-4 group-hover:drop-shadow-[0_0_5px_var(--color-accent)]" />
-                <span>Astro</span>
-              </a>
-            </div>
-          </div>
-          -->
         </div>
       </div>
     </div>
@@ -85,22 +71,20 @@ import localData from '../data/home.json';
 
 <script>
   const revealContact = () => {
-    const header = document.querySelector('.contact-header');
-    const footer = document.querySelector('.contact-footer');
-    const cards = document.querySelectorAll('.contact-card');
+    const header = document.querySelector(".contact-header");
+    const footer = document.querySelector(".contact-footer");
+    const cards = document.querySelectorAll(".contact-card");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const target = entry.target as HTMLElement;
 
-          if (target.classList.contains('contact-card')) {
+          if (target.classList.contains("contact-card")) {
             const index = Array.from(cards).indexOf(target);
-            setTimeout(() => {
-              target.classList.add('reveal');
-            }, (index % 4) * 150);
+            setTimeout(() => target.classList.add("reveal"), (index % 4) * 150);
           } else {
-            target.classList.add('reveal');
+            target.classList.add("reveal");
           }
 
           observer.unobserve(target);
@@ -108,7 +92,7 @@ import localData from '../data/home.json';
       });
     }, {
       threshold: 0.15,
-      rootMargin: '0px 0px -10px 0px'
+      rootMargin: "0px 0px -10px 0px"
     });
 
     if (header) observer.observe(header);
@@ -116,6 +100,6 @@ import localData from '../data/home.json';
     cards.forEach((card) => observer.observe(card));
   };
 
-  window.addEventListener('load', revealContact);
-  document.addEventListener('astro:after-swap', revealContact);
+  window.addEventListener("load", revealContact);
+  document.addEventListener("astro:after-swap", revealContact);
 </script>
