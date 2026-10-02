@@ -28,7 +28,10 @@ import localData from "../data/home.json";
               rel="noopener noreferrer"
               class="contact-card opacity-0 group p-8 bg-accent/5 border border-accent/10 rounded-2xl hover:border-accent/40 hover:bg-accent/10 transition-all duration-300"
             >
-              <Icon name={social.icon} class="w-10 h-10 text-accent mb-4 mx-auto group-hover:scale-110 transition-transform" />
+              <Icon
+                name={social.icon}
+                class="w-10 h-10 text-accent mb-4 mx-auto group-hover:scale-110 transition-transform"
+              />
               <h3 class="text-maintext font-bold mb-1">{social.name}</h3>
               <p class="text-subtext text-xs truncate px-2">
                 {social.url.replace("https://", "").replace("mailto:", "").replace("wa.me/", "")}
