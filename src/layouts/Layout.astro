@@ -1,98 +1,26 @@
 ---
-import '../styles/global.css'
-import { SITE_CONFIG } from '../config.ts';
-
 interface Props {
-  title: string;
+	title: string;
+	description?: string;
+	image?: string;
+	scripts?: string[];
 }
 
-const { title } = Astro.props;
-
-const baseTheme = SITE_CONFIG.baseTheme;
-const defaultTheme = `${baseTheme}-dark`;
+const { title, description = "Portfolio de Léo Mialaret - Développeur Full Stack", image } = Astro.props;
 ---
+
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.ico" />
-    <title>{title}</title>
-
-    <!-- THEME TOGGLE SCRIPT -->
-    <script is:inline define:vars={{ baseTheme, defaultTheme }}>
-      const savedTheme = localStorage.getItem('theme');
-
-      if (savedTheme && savedTheme.startsWith(baseTheme)) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else {
-        document.documentElement.setAttribute('data-theme', defaultTheme);
-        localStorage.setItem('theme', defaultTheme);
-      }
-
-      const savedLang =
-        localStorage.getItem('lang') ||
-        (navigator.language.startsWith('fr') ? 'fr' : 'en');
-
-      document.documentElement.setAttribute('data-lang', savedLang);
-      document.documentElement.lang = savedLang;
-    </script>
-
-  </head>
-  <body class="bg-container relative min-h-screen overflow-x-hidden antialiased">
-    <div
-      id="matrix-container"
-      class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
-      style="mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);"
-    ></div>
-    <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
-      <slot />
-    </main>
-    <button
-      id="to-top"
-      class="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-background border border-accent/10 shadow-2xl transition-all duration-500 translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
-      aria-label="Back to top"
-    >
-      <svg class="w-14 h-14 -rotate-90">
-        <circle
-          cx="28"
-          cy="28"
-          r="24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          class="text-accent/5"
-        ></circle>
-        <circle
-          id="progress-circle"
-          cx="28"
-          cy="28"
-          r="24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          stroke-dasharray="150.7"
-          stroke-dashoffset="150.7"
-          stroke-linecap="round"
-          class="text-accent transition-all duration-100"
-        ></circle>
-      </svg>
-      <div class="absolute text-accent group-hover:scale-110 transition-transform">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="20"
-          height="20"
-          fill="currentColor"
-        >
-          <path
-            d="M13.0001 7.82843V20H11.0001V7.82843L5.63614 13.1924L4.22192 11.7782L12.0001 4L19.7783 11.7782L18.3641 13.1924L13.0001 7.82843Z"
-          ></path>
-        </svg>
-      </div>
-    </button>
-    <script>
-      /* Existing matrix and scroll-to-top behavior remains unchanged. */
-    </script>
-  </body>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<script src="/i18n.js" defer></script>
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>
