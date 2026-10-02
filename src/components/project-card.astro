@@ -1,28 +1,33 @@
 ---
 import { Icon } from 'astro-icon/components';
+
 const { project } = Astro.props;
 
 const isSlider = project.images.length > 1;
+const titleEn = project.title_en || project.title;
+const descriptionEn = project.description_en || project.description;
+const categoryEn = project.category_en || project.category;
+const techEn = project.tech_en || project.tech;
 ---
 
 <div class="project-card group relative bg-accent/5 border border-accent/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500">
   <div class="aspect-video overflow-hidden relative bg-background/50">
     <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
-    
+
     <div class={`w-full h-full relative ${isSlider ? 'image-slider' : ''}`}>
       {project.images.map((img: string, index: number) => (
-        <img 
+        <img
           src={img}
           alt={`${project.title} screenshot ${index + 1}`}
           onerror="this.onerror=null;this.src='placeholder.jpeg';"
-          class={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 ${index === 0 ? 'opacity-100 z-0' : 'opacity-0 z-[-1]'}`}
+          class={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 ${index === 0 ? 'opacity-100 z-0' : 'opacity-0 -z-1'}`}
         />
       ))}
     </div>
-    
+
     <div class="absolute top-3 right-3 flex gap-2 z-20">
       {project.platforms.map((p: string) => (
-        <div class="p-1.5 bg-background backdrop-blur-md rounded-lg border border-accent/10 text-maintext">
+        <div class="p-1.5 bg-background/80 backdrop-blur-md rounded-lg border border-accent/10 text-maintext">
           <Icon name={`mdi:${p}`} class="w-4 h-4" />
         </div>
       ))}
@@ -32,8 +37,14 @@ const isSlider = project.images.length > 1;
   <div class="p-6 space-y-4">
     <div class="flex justify-between items-start">
       <div>
-        <span class="text-accent text-[10px] uppercase tracking-widest font-bold">{project.category}</span>
-        <h3 class="text-xl font-heading font-bold text-maintext mt-1">{project.title}</h3>
+        <span class="text-accent text-[10px] uppercase tracking-widest font-bold">
+          <span class="i18n-fr">{project.category}</span>
+          <span class="i18n-en">{categoryEn}</span>
+        </span>
+        <h3 class="text-xl font-heading font-bold text-maintext mt-1">
+          <span class="i18n-fr">{project.title}</span>
+          <span class="i18n-en">{titleEn}</span>
+        </h3>
       </div>
       <!--
       <a href={project.link} target="_blank" class="text-accent/75 hover:text-accent transition-colors">
@@ -43,13 +54,15 @@ const isSlider = project.images.length > 1;
     </div>
 
     <p class="text-subtext text-sm font-body line-clamp-3">
-      {project.description}
+      <span class="i18n-fr">{project.description}</span>
+      <span class="i18n-en">{descriptionEn}</span>
     </p>
 
     <div class="flex flex-wrap gap-2 pt-2">
-      {project.tech.map((t: string) => (
-        <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80  group-hover:border-accent/40 group-hover:text-accent">
-          {t}
+      {project.tech.map((t: string, index: number) => (
+        <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80 group-hover:border-accent/40 group-hover:text-accent">
+          <span class="i18n-fr">{t}</span>
+          <span class="i18n-en">{techEn[index] || t}</span>
         </span>
       ))}
     </div>
@@ -59,22 +72,20 @@ const isSlider = project.images.length > 1;
 <script>
   function initSliders() {
     const sliders = document.querySelectorAll('.image-slider');
-    
-    sliders.forEach(slider => {
+
+    sliders.forEach((slider) => {
       const images = slider.querySelectorAll('img');
       if (images.length <= 1) return;
 
       let currentIndex = 0;
+
       setInterval(() => {
-        // Hide current
         images[currentIndex].classList.remove('opacity-100', 'z-0');
-        images[currentIndex].classList.add('opacity-0', 'z-[-1]');
-        
-        // Move to next
+        images[currentIndex].classList.add('opacity-0', '-z-1');
+
         currentIndex = (currentIndex + 1) % images.length;
-        
-        // Show next
-        images[currentIndex].classList.remove('opacity-0', 'z-[-1]');
+
+        images[currentIndex].classList.remove('opacity-0', '-z-1');
         images[currentIndex].classList.add('opacity-100', 'z-0');
       }, 3500);
     });
@@ -89,10 +100,7 @@ const isSlider = project.images.length > 1;
     opacity: 0;
     visibility: hidden;
     transform: translateY(40px);
-    transition: 
-      opacity 0.8s ease-out, 
-      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-      visibility 0.8s;
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
     will-change: transform, opacity;
   }
 

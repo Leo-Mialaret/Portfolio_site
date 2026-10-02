@@ -2,32 +2,62 @@
 interface Props {
   item: {
     period: string;
+    period_en?: string;
     role: string;
+    role_en?: string;
     company: string;
+    company_en?: string;
     description: string;
+    description_en?: string;
     skills: string[];
+    skills_en?: string[];
   };
   variant: 'mobile' | 'desktop-left' | 'desktop-right';
 }
 
 const { item, variant } = Astro.props;
 
-const isMobile = variant === 'mobile';
 const isLeft = variant === 'desktop-left';
 
 const alignmentClass = isLeft ? "text-right" : "";
-
 const skillContainerClasses = `flex flex-wrap gap-2 ${isLeft ? 'justify-end' : ''}`;
+
+const periodEn = item.period_en || item.period;
+const roleEn = item.role_en || item.role;
+const companyEn = item.company_en || item.company;
+const descriptionEn = item.description_en || item.description;
+const skillsEn = item.skills_en || item.skills;
 ---
 
 <div class={`bg-accent/5 border border-accent/10 p-4 md:p-6 rounded-2xl hover:border-accent/40 transition-all group ${alignmentClass}`}>
-  <span class={`font-mono text-xs tracking-widest uppercase text-accent/75`}>{item.period}</span>
-  <h3 class="text-xl font-heading font-bold text-maintext mt-1">{item.role}</h3>
-  <p class="text-accent text-sm mb-4">{item.company}</p>
-  <p class="text-subtext font-body text-sm leading-relaxed mb-4">{item.description}</p>
+  <div>
+    <span class="font-mono text-xs tracking-widest uppercase text-accent/75">
+      <span class="i18n-fr">{item.period}</span>
+      <span class="i18n-en">{periodEn}</span>
+    </span>
+  </div>
+
+  <h3 class="text-xl font-heading font-bold text-maintext mt-1">
+    <span class="i18n-fr">{item.role}</span>
+    <span class="i18n-en">{roleEn}</span>
+  </h3>
+
+  <p class="text-accent text-sm mb-4">
+    <span class="i18n-fr">{item.company}</span>
+    <span class="i18n-en">{companyEn}</span>
+  </p>
+
+  <p class="text-subtext font-body text-sm leading-relaxed mb-4">
+    <span class="i18n-fr">{item.description}</span>
+    <span class="i18n-en">{descriptionEn}</span>
+  </p>
+
   <div class={skillContainerClasses}>
-    {item.skills.map((skill: string) => (
-      <span class={`rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80 group-hover:border-accent/40 group-hover:text-accent`}>{skill}</span>
+    {item.skills.map((skill: string, index: number) => (
+      <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80 group-hover:border-accent/40 group-hover:text-accent">
+        <span class="i18n-fr">{skill}</span>
+        <span class="i18n-en">{skillsEn[index] || skill}</span>
+      </span>
     ))}
   </div>
 </div>

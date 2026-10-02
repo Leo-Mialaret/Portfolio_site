@@ -1,0 +1,1812 @@
+]633;E;echo "===== FILE: src/components/nav.astro =====";1c3ca139-78ad-4209-95f8-abae8e769553]633;C===== FILE: src/components/nav.astro =====
+---
+import { Icon } from 'astro-icon/components';
+import ThemeToggle from './theme-toggle.astro';
+
+interface NavItem {
+  labelFr: string;
+  labelEn: string;
+  href: string;
+  icon: string;
+}
+
+const navItems: NavItem[] = [
+  {
+    labelFr: "Accueil",
+    labelEn: "Home",
+    href: "#home",
+    icon: `mdi:home`,
+  },
+  {
+    labelFr: "Parcours",
+    labelEn: "Journey",
+    href: "#career",
+    icon: `mdi:work`,
+  },
+  {
+    labelFr: "Projets",
+    labelEn: "Projects",
+    href: "#projects",
+    icon: `mdi:computer`,
+  },
+  {
+    labelFr: "Compétences",
+    labelEn: "Skills",
+    href: "#tech",
+    icon: `mdi:code-tags`,
+  },
+  {
+    labelFr: "Contact",
+    labelEn: "Contact",
+    href: "#contact",
+    icon: `mdi:message`,
+  }
+];
+---
+
+<div id="theme-toggle-wrapper" class="fixed top-4 right-4 z-50 md:top-4 md:right-4 reveal-content flex items-center gap-2" style="animation-delay: 700ms;">
+  <ThemeToggle />
+  <button
+  id="lang-toggle"
+  type="button"
+  class="px-3 py-2 rounded-full border border-accent/30 text-xs font-semibold text-maintext bg-background/30 backdrop-blur-md hover:bg-accent hover:text-background transition-all duration-300 cursor-pointer"
+  aria-label="Switch language"
+>
+  EN
+</button>
+</div>
+
+<div class="flex justify-center w-full">
+  <nav
+    id="main-nav"
+    class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
+  >
+    <div class="container mx-auto flex justify-center items-center p-3 reveal-content" style="animation-delay: 700ms;">
+      <ul
+        class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1"
+      >
+        {
+          navItems.map((item) => (
+            <li class="flex-1 md:flex-none">
+              <a
+                href={item.href}
+                class="flex flex-col items-center gap-1 text-accent transition-colors text-xs md:text-base relative group"
+              >
+                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 nav-indicator hidden md:block" />
+                <span class="md:hidden flex items-center justify-center w-6 h-6">
+                  <Icon
+                    name={item.icon}
+                    class="nav-icon w-full h-full text-accent/50 group-hover:text-accent transition-colors duration-300"
+                  />
+                </span>
+                <span class="hidden md:inline-block">
+                  <span class="i18n-fr">{item.labelFr}</span>
+                  <span class="i18n-en">{item.labelEn}</span>
+                </span>
+                <span class="md:hidden text-xs">
+                  <span class="i18n-fr">{item.labelFr}</span>
+                  <span class="i18n-en">{item.labelEn}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<style>
+  .reveal-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  #lang-toggle {
+  cursor: pointer;
+  }
+
+  @keyframes revealIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  nav {
+    background-color: transparent;
+    border-color: transparent;
+    backdrop-filter: blur(0px);
+    transition:
+      background-color 0.4s ease,
+      backdrop-filter 0.4s ease,
+      border-radius 0.4s ease,
+      border-color 0.4s ease,
+      width 0.4s ease;
+  }
+
+  nav.scrolling {
+    background-color: color-mix(in srgb, var(--color-background), transparent 75%);
+    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+    border-radius: 9999px;
+    backdrop-filter: blur(10px);
+  }
+
+  nav a.active .nav-indicator {
+    transform: translateY(-50%) scale(1);
+    opacity: 0;
+  }
+
+  nav a {
+    transition: transform 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+  }
+
+  nav a.active {
+    color: var(--color-maintext) !important;
+    font-weight: 700;
+    transform: scale(1.1);
+  }
+
+  nav a.active span {
+    text-shadow: 0 0 10px color-mix(in srgb, var(--color-maintext) 30%, transparent);
+  }
+
+  nav li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-icon {
+    transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+  }
+
+  nav a.active .nav-icon {
+    color: var(--color-maintext) !important;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px var(--color-maintext));
+  }
+
+  @media (max-width: 767px) {
+    nav {
+      width: 100% !important;
+      bottom: 0;
+      border-radius: 1.5rem 1.5rem 0 0;
+      background-color: color-mix(in srgb, var(--color-background), transparent 10%);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid color-mix(in srgb, var(--color-maintext) 15%, transparent);
+    }
+
+    nav.scrolling {
+      border-radius: 1.5rem 1.5rem 0 0;
+      width: 100% !important;
+    }
+
+    #main-nav {
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      background-clip: padding-box;
+    }
+
+    #main-nav.nav-hidden {
+      transform: translate3d(0, 110%, 0) !important;
+      backdrop-filter: blur(0px);
+    }
+
+    #theme-toggle-wrapper {
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #theme-toggle-wrapper.theme-hidden {
+      transform: translateY(-150%) !important;
+    }
+  }
+
+  nav a:not(.active):hover {
+    color: var(--color-maintext) !important;
+  }
+
+  nav a:not(.active):hover span {
+    transform: scale(0.95);
+    text-shadow: 0 0 15px var(--color-accent-60);
+  }
+
+  nav a:not(.active):hover .nav-icon {
+    transform: scale(0.95);
+    color: var(--color-maintext) !important;
+  }
+
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: 70px;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById("main-nav");
+  const themeWrapper = document.getElementById("theme-toggle-wrapper");
+  const langToggle = document.getElementById("lang-toggle");
+
+  const maxScroll = 1000;
+  let lastScrollY = window.scrollY;
+  let rafId: number | null = null;
+
+  function updateLangButton() {
+    const currentLang = document.documentElement.getAttribute("data-lang") || "fr";
+    if (langToggle) {
+      langToggle.textContent = currentLang === "fr" ? "EN" : "FR";
+      langToggle.setAttribute(
+        "aria-label",
+        currentLang === "fr" ? "Switch to English" : "Passer en français"
+      );
+    }
+  }
+
+  function updateNav() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > 0) {
+      nav?.classList.add("scrolling");
+
+      const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
+      const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
+
+      const minWidth = Math.min(680, window.innerWidth * 0.95);
+      const maxWidth = window.innerWidth * 0.8;
+      const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
+
+      if (window.innerWidth >= 768) {
+        nav?.style.setProperty("width", `${currentWidth}px`);
+      }
+    } else {
+      nav?.classList.remove("scrolling");
+    }
+
+    if (window.innerWidth < 768) {
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        nav?.classList.add("nav-hidden");
+        themeWrapper?.classList.add("theme-hidden");
+      } else {
+        nav?.classList.remove("nav-hidden");
+        themeWrapper?.classList.remove("theme-hidden");
+      }
+    }
+
+    lastScrollY = currentScrollY;
+    rafId = null;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateNav);
+      }
+    },
+    { passive: true }
+  );
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = e.currentTarget as HTMLAnchorElement;
+      const targetId = target.getAttribute("href")?.substring(1) || "";
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateLangButton();
+
+    langToggle?.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-lang") || "fr";
+      const next = current === "fr" ? "en" : "fr";
+
+      document.documentElement.setAttribute("data-lang", next);
+      document.documentElement.setAttribute("lang", next);
+      localStorage.setItem("lang", next);
+
+      updateLangButton();
+    });
+
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav a[href^='#']");
+    const observerOptions = { threshold: 0.5 };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          const id = entry.target.getAttribute("id");
+          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+    sections.forEach((section) => observer.observe(section));
+  });
+</script>===== FILE: src/layouts/Layout.astro =====
+---
+import '../styles/global.css'
+import { SITE_CONFIG } from '../config.ts';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const baseTheme = SITE_CONFIG.baseTheme;
+const defaultTheme = `${baseTheme}-dark`;
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <title>{title}</title>
+
+    <!-- THEME + LANGUAGE INIT -->
+    <script is:inline define:vars={{ baseTheme, defaultTheme }}>
+      const savedTheme = localStorage.getItem('theme');
+      const savedLang = localStorage.getItem('lang') || 'fr';
+
+      if (savedTheme && savedTheme.startsWith(baseTheme)) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', defaultTheme);
+        localStorage.setItem('theme', defaultTheme);
+      }
+
+      document.documentElement.setAttribute('data-lang', savedLang);
+      document.documentElement.setAttribute('lang', savedLang);
+    </script>
+  </head>
+  <body class="bg-container relative min-h-screen overflow-x-hidden antialiased">
+    <div 
+      id="matrix-container" 
+      class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
+      style="mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);"
+    ></div>
+
+    <main class="px-2 sm:px-12 md:px-14 lg:px-28 max-w-360 mx-auto relative z-0">
+      <slot />
+    </main>
+
+    <button
+      id="to-top"
+      class="fixed bottom-8 right-8 z-50 p-0 rounded-full bg-background border border-accent/10 shadow-2xl transition-all duration-500 translate-y-20 opacity-0 group flex items-center justify-center cursor-pointer"
+      aria-label="Back to top"
+    >
+      <svg class="w-14 h-14 -rotate-90">
+        <circle cx="28" cy="28" r="24" fill="none" stroke="currentColor" stroke-width="3" class="text-accent/5"></circle>
+        <circle
+          id="progress-circle"
+          cx="28"
+          cy="28"
+          r="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-dasharray="150.7"
+          stroke-dashoffset="150.7"
+          stroke-linecap="round"
+          class="text-accent transition-all duration-100"
+        ></circle>
+      </svg>
+      
+      <div class="absolute text-accent group-hover:scale-110 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M13.0001 7.82843V20H11.0001V7.82843L5.63614 13.1924L4.22192 11.7782L12.0001 4L19.7783 11.7782L18.3641 13.1924L13.0001 7.82843Z"></path>
+        </svg>
+      </div>
+    </button>
+
+    <script>
+      const container = document.getElementById('matrix-container');
+      const characters = "{}[]()<>/\\=+*01;";
+      const colors = ["#FF4500", "#32CD32", "#1E90FF", "#FFD700", "#8A2BE2", "#FF1493"];
+
+      function createLetter() {
+        if (!container) return;
+
+        const span = document.createElement('span');
+        const char = characters[Math.floor(Math.random() * characters.length)];
+        const color = "var(--color-textrain)";
+        
+        const left = Math.random() * 100;
+        const duration = 4 + Math.random() * 8;
+        const size = 10 + Math.random() * 10;
+        
+        span.innerText = char;
+        span.className = 'falling-letter';
+        span.style.left = `${left}vw`;
+        span.style.color = color;
+        span.style.fontSize = `${size}px`;
+        span.style.animationDuration = `${duration}s`;
+        span.style.textShadow = `0 0 5px ${color}`;
+        
+        container.appendChild(span);
+
+        setTimeout(() => {
+          span.remove();
+        }, duration * 1000);
+      }
+
+      if (window.innerWidth > 768) {
+        setInterval(createLetter, 250);
+      } else {
+        const mobileCount = 20;
+        for (let i = 0; i < mobileCount; i++) {
+          createStaticLetter();
+        }
+      }
+
+      function createStaticLetter() {
+        if (!container) return;
+
+        const span = document.createElement('span');
+        const char = characters[Math.floor(Math.random() * characters.length)];
+        const color = "var(--color-textrain)";
+        
+        const left = Math.random() * 100;
+        const top = Math.random() * 90;
+        const size = 10 + Math.random() * 10;
+        
+        span.innerText = char;
+        span.className = 'falling-letter';
+        span.style.animation = 'none';
+        span.style.left = `${left}vw`;
+        span.style.top = `${top}vh`;
+        span.style.color = color;
+        span.style.fontSize = `${size}px`;
+        span.style.opacity = (0.1 + Math.random() * 0.3).toString();
+        span.style.textShadow = `0 0 5px ${color}`;
+        
+        container.appendChild(span);
+      }
+
+      const toTopBtn = document.getElementById('to-top');
+      const progressCircle = document.getElementById('progress-circle');
+      const circumference = 150.796;
+      const arrowIcon = toTopBtn?.querySelector('.absolute');
+
+      function handleScroll() {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = window.scrollY / scrollHeight;
+        
+        const offset = circumference - (scrollPercentage * circumference);
+        if (progressCircle) {
+          progressCircle.style.strokeDashoffset = offset.toString();
+        }
+
+        if (scrollPercentage > 0.5) {
+          toTopBtn?.classList.remove('translate-y-20', 'opacity-0');
+          toTopBtn?.classList.add('translate-y-0', 'opacity-100');
+        } else {
+          toTopBtn?.classList.add('translate-y-20', 'opacity-0');
+          toTopBtn?.classList.remove('translate-y-0', 'opacity-100');
+        }
+
+        if (scrollPercentage > 0.98) {
+          arrowIcon?.classList.add('animate-bounce-twice');
+        } else {
+          arrowIcon?.classList.remove('animate-bounce-twice');
+        }
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      toTopBtn?.addEventListener('click', () => {
+        arrowIcon?.classList.add('launching');
+
+        const startPosition = window.scrollY;
+        const duration = 750;
+        let startTime: number | null = null;
+        let requestID: number;
+
+        const stopAnimation = () => {
+          cancelAnimationFrame(requestID);
+          arrowIcon?.classList.remove('launching');
+          window.removeEventListener('wheel', stopAnimation);
+          window.removeEventListener('touchmove', stopAnimation);
+        };
+
+        function easeOutQuad(t: number, b: number, c: number, d: number) {
+          t /= d;
+          return -c * t * (t - 2) + b;
+        }
+
+        function animation(currentTime: number) {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const run = easeOutQuad(timeElapsed, startPosition, -startPosition, duration);
+          
+          window.scrollTo(0, run);
+
+          if (timeElapsed < duration) {
+            requestID = requestAnimationFrame(animation);
+          } else {
+            stopAnimation();
+          }
+        }
+
+        window.addEventListener('wheel', stopAnimation, { once: true });
+        window.addEventListener('touchmove', stopAnimation, { once: true });
+
+        requestID = requestAnimationFrame(animation);
+      });
+    </script>
+  </body>
+</html>===== FILE: src/styles/global.css =====
+@import "tailwindcss";
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/inter';
+
+@theme {
+  /* Base Colors - Theme used in @layer base{...} */
+  --color-background: #0F0D29;
+  --color-accent: #A78BFA;
+  --color-maintext: #FFFFFF;
+  --color-subtext: #b2bed1;
+  --color-textrain: #7d7b9c;
+
+  /* Fonts */
+  --font-heading: "Space Grotesk Variable", sans-serif;
+  --font-body: "Inter Variable", sans-serif;
+
+  /* Custom Animations */
+  --animate-fall: fall linear forwards;
+  --animate-bounce-twice: double-bounce-pause 5.6s ease-in-out infinite;
+
+  @keyframes fall {
+    0% { transform: translateY(-5vh); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(90vh); opacity: 0; }
+  }
+
+  @keyframes double-bounce-pause {
+    0%, 5.3%, 10.7%, 100% { transform: translateY(0); }
+    2.6% { transform: translateY(-8px); }
+    8% { transform: translateY(-8px); }
+  }
+
+  @keyframes launch {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+  }
+}
+
+@layer base {
+  :root,
+  [data-theme="default-dark"] {
+    --color-background: #0F0D29;
+    --color-accent: #A78BFA;
+    --color-maintext: #FFFFFF;
+    --color-subtext: #b2bed1;
+    --color-textrain: #7d7b9c;
+  }
+
+  [data-theme="default-light"] {
+    --color-background: #F5F3FF;
+    --color-accent: #7C3AED;
+    --color-maintext: #1E1B4B;
+    --color-subtext: #4B5563;
+    --color-textrain: #97a7dc;
+  }
+
+  [data-theme="strategic-dark"] {
+    --color-background: #0F172A;
+    --color-accent: #38BDF8;
+    --color-maintext: #F1F5F9;
+    --color-subtext: #a0adbf;
+    --color-textrain: #4d5b6f;
+  }
+
+  [data-theme="strategic-light"] {
+    --color-background: #F8FAFC;
+    --color-accent: #0284C7;
+    --color-maintext: #0F172A;
+    --color-subtext: #475569;
+    --color-textrain: #9eb9da;
+  }
+
+  [data-theme="innovator-dark"] {
+    --color-background: #0B0F0E;
+    --color-accent: #BEF264;
+    --color-maintext: #FFFFFF;
+    --color-subtext: #c4c3c3;
+    --color-textrain: #567b6c;
+  }
+
+  [data-theme="innovator-light"] {
+    --color-background: #F0FDF4;
+    --color-accent: #06aa73;
+    --color-maintext: #064E3B;
+    --color-subtext: #4B5563;
+    --color-textrain: #7fbc9e;
+  }
+
+  [data-theme="executive-dark"] {
+    --color-background: #121212;
+    --color-accent: #EAB308;
+    --color-maintext: #FAFAF9;
+    --color-subtext: #dad0c9;
+    --color-textrain: #777271;
+  }
+
+  [data-theme="executive-light"] {
+    --color-background: #FCF8F1;
+    --color-accent: #B45309;
+    --color-maintext: #1C1917;
+    --color-subtext: #71665f;
+    --color-textrain: #e2a787;
+  }
+
+  *::selection {
+    @apply bg-accent text-background;
+  }
+
+  body {
+    @apply font-body antialiased text-maintext;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-background), black 16%) 0%,
+      var(--color-background) 50%,
+      color-mix(in srgb, var(--color-background), white 16%) 100%
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply py-12 md:py-20 px-4 md:px-0;
+  }
+
+  .falling-letter {
+    @apply absolute font-heading font-extralight select-none pointer-events-none leading-none;
+    animation: fall linear forwards;
+  }
+
+  .launching {
+    animation: launch 0.5s ease-in forwards;
+  }
+
+  html[data-lang="fr"] .i18n-en {
+    display: none;
+  }
+
+  html[data-lang="en"] .i18n-fr {
+    display: none;
+  }
+}
+
+/* Custom Scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: color-mix(in srgb, var(--color-accent), transparent 50%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--color-accent), transparent 25%);
+}===== FILE: src/components/home.astro =====
+---
+import { Icon } from 'astro-icon/components';
+import localData from '../data/home.json';
+
+// Data Definitions
+interface Social {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+interface ProfileData {
+  name: string;
+  photoUrl: string;
+  intro: string;
+  introHtml: string;
+  intro_en?: string;
+  introHtml_en?: string;
+  resumeUrl: string;
+  socials: Social[];
+}
+
+const isApiLive = import.meta.env.PROD;
+const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+
+let data: ProfileData;
+
+if (isApiLive && BASE_URL) {
+  try {
+    const response = await fetch(`${BASE_URL}/home`);
+    if (!response.ok) throw new Error('Network response was not ok');
+    data = await response.json();
+  } catch (error) {
+    console.error("API Fetch failed, falling back to mock data", error);
+    data = localData as ProfileData;
+  }
+} else {
+  data = localData as ProfileData;
+}
+
+const { name, photoUrl, intro, introHtml, intro_en, introHtml_en, resumeUrl, socials } = data;
+
+const introFr = introHtml || intro;
+const introEn = introHtml_en || intro_en || introFr;
+---
+
+<section id="home" class="flex flex-col items-center justify-center section-container md:pt-30 gap-1 min-h-[80vh] text-center">
+  <div class="relative group mb-2 reveal-content" style="animation-delay: 100ms;">
+    <div class="balloon-float w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-accent overflow-hidden shadow-[0_0_50px_color-mix(in_srgb,var(--color-accent)_33%,transparent)]">
+      <img
+        src={photoUrl}
+        alt={name}
+        onerror="this.onerror=null;this.src='/placeholder.jpeg';"
+        class="w-full h-full object-cover scale-110"
+      />
+    </div>
+    <div class="balloon-float absolute -z-10 top-0 left-0 w-full h-full bg-accent rounded-full blur-[80px] opacity-20"></div>
+  </div>
+
+  <div class="reveal-content" style="animation-delay: 200ms;">
+    <p class="font-body font-light text-gray leading-relaxed">
+      <span class="i18n-fr">Bonjour, je suis :</span>
+      <span class="i18n-en">Hi, I'm:</span>
+    </p>
+  </div>
+
+  <div class="px-6 sm:px-14 md:px-18 lg:px-40 max-w-360 mx-auto relative z-0 reveal-content" style="animation-delay: 300ms;">
+    <h1 class="text-5xl md:text-7xl font-heading font-bold text-maintext tracking-tight">
+      {name}
+    </h1>
+    <br />
+    <div class="text-gray font-body text-lg leading-relaxed">
+      <p class="i18n-fr" set:html={introFr} />
+      <p class="i18n-en" set:html={introEn} />
+    </div>
+  </div>
+
+  <div class="mt-8 mb-4 reveal-content" style="animation-delay: 400ms;">
+    <a
+      href={resumeUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group relative inline-flex items-center justify-center px-10 py-2 bg-white/5 border border-white/10 rounded-full text-maintext font-body transition-all duration-300
+             border-accent/50 bg-accent/10 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]
+             md:border-accent/50 md:bg-accent/10 md:shadow-none md:hover:border-accent/50 md:hover:bg-accent/10 md:hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)]
+             hover:scale-105"
+    >
+      <div class="flex flex-col items-center justify-center text-center">
+        <span class="tracking-wide text-sm md:text-base font-medium transition-transform duration-300 md:translate-y-2 md:group-hover:translate-y-0">
+          CV
+        </span>
+
+        <span class="text-[10px] text-subtext font-light whitespace-nowrap transition-all duration-300 opacity-100 translate-y-0 md:opacity-0 md:translate-y-1 md:group-hover:opacity-100 md:group-hover:translate-y-0">
+          <span class="i18n-fr">Télécharge le CV au format PDF</span>
+          <span class="i18n-en">Downloads the CV as a PDF file</span>
+        </span>
+      </div>
+
+      <div class="absolute inset-0 rounded-full blur-md bg-accent/20 -z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"></div>
+    </a>
+  </div>
+
+  <div class="flex gap-6 mt-4 reveal-content" style="animation-delay: 500ms;">
+    {socials
+      .filter((social) => social.url && social.url !== "#" && social.url !== "")
+      .map((social) => (
+        <a
+          href={social.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex flex-col items-center justify-center transition-all duration-300 hover:scale-110"
+        >
+          <Icon
+            name={social.icon}
+            class="w-8 h-8 text-maintext group-hover:text-accent transition-colors duration-300"
+          />
+
+          <span class="absolute -bottom-6 scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 text-xs text-accent font-body">
+            {social.name}
+          </span>
+        </a>
+      ))}
+  </div>
+</section>
+
+<style is:global>
+  .reveal-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  @keyframes revealIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .avatar-container {
+    animation: float 5s ease-in-out infinite alternate, wobble 7s ease-in-out infinite alternate;
+  }
+
+  .balloon-float {
+    will-change: transform;
+    animation: floating-balloon 8s ease-in-out infinite;
+  }
+
+  @keyframes floating-balloon {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(3px, -8px) rotate(1deg);
+    }
+    66% {
+      transform: translate(-3px, -4px) rotate(-1deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+</style>===== FILE: src/data/home.json =====
+{
+  "name": "Léo Mialaret",
+  "photoUrl": "1771860924806.jpg",
+  "intro": "Étudiant en 2ème année à l’IUT d’Orsay en informatique, je cherche un stage de 8 à 12 semaines à effectuer entre mai et juillet 2027.",
+  "intro_en": "Second-year Computer Science student at IUT d'Orsay, looking for an 8 to 12 week internship between May and July 2027.",
+  "introHtml_en": "I am a deeply curious and adaptable person, and I show resilience and perseverance when facing challenges.",
+  "introHtml": "Je suis une personne profondément curieuse et adaptable, qui fait preuve de résilience et de persévérance face aux défis.",
+  "webpageTitle": "Portfolio Mialaret",
+  "resumeUrl": "CV_Mialaret_stage_BUT2.pdf",
+
+  "_comment": "Add your social links below. Leave the 'url' empty to hide the icon. Set 'showInContact' to true or false to control if it appears in the Contact section.",
+  "socials": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Leo-Mialaret",
+      "icon": "mdi:github",
+      "showInContact": true
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/leo-mialaret/",
+      "icon": "mdi:linkedin",
+      "showInContact": true
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.com/users/1259915337445408818",
+      "icon": "skill-icons:discord",
+      "showInContact": false
+    },
+    {
+      "name": "Behance",
+      "url": "#",
+      "icon": "devicon-plain:behance",
+      "showInContact": false
+    },
+    {
+      "name": "Email",
+      "url": "mailto:mialaret.leo.pro@gmail.com",
+      "icon": "mdi:email",
+      "showInContact": true
+    },
+    {
+      "name": "WhatsApp",
+      "url": "https://wa.me/33762624532",
+      "icon": "mdi:whatsapp",
+      "showInContact": true
+    },
+    {
+      "name": "Facebook",
+      "url": "#",
+      "icon": "mdi:facebook",
+      "showInContact": false
+    },
+    {
+      "name": "Messenger",
+      "url": "#",
+      "icon": "mdi:facebook-messenger",
+      "showInContact": false
+    },
+    {
+      "name": "Instagram",
+      "url": "#",
+      "icon": "mdi:instagram",
+      "showInContact": false
+    },
+    {
+      "name": "Twitter",
+      "url": "#",
+      "icon": "mdi:twitter",
+      "showInContact": false
+    }
+  ]
+}
+===== FILE: src/components/career.astro =====
+---
+import careerData from '../data/career.json';
+import CareerCard from './career-card.astro';
+---
+
+<section id="career" class="section-container max-w-6xl mx-auto overflow-hidden">
+  <div class="container mx-auto reveal-content" style="animation-delay: 1000ms;">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+        <span class="text-accent">/</span>
+        <span class="i18n-fr">Parcours</span>
+        <span class="i18n-en">Background</span>
+      </h2>
+      <p class="text-subtext font-body text-sm max-w-md pb-8">
+        <span class="i18n-fr">Un aperçu de mon parcours</span>
+        <span class="i18n-en">An overview of my background</span>
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute left-2 md:left-1/2 md:-translate-x-1/2 top-5 bottom-0 w-0.5 bg-linear-to-b from-accent via-white/10 to-transparent"></div>
+
+      <div class="md:hidden space-y-8">
+        {careerData.map((item, index) => (
+          <div class="scroll-stat relative pl-6">
+            <div class="absolute left-0 top-1 z-10">
+              <div class={`w-4 h-4 rounded-full border-4 border-[#0a0a0a] 
+                          ${index === 0 ? 'bg-accent shadow-[0_0_15px_var(--color-accent)] animate-pulse' : 'bg-accent/50'}`}>
+              </div>
+            </div>
+
+            <CareerCard item={item} variant="mobile" />
+          </div>
+        ))}
+      </div>
+
+      <div class="hidden md:block space-y-4">
+        {careerData.map((item, index) => (
+          <div class="scroll-stat relative grid grid-cols-2">
+            <div class="absolute left-1/2 -translate-x-1/2 top-1 z-10">
+              <div class={`w-4 h-4 rounded-full border-4 border-[#0a0a0a] 
+                          ${index === 0 ? 'bg-accent shadow-[0_0_15px_var(--color-accent)] animate-pulse' : 'bg-accent/50'}`}>
+              </div>
+            </div>
+
+            <div class="md:px-6 md:py-0">
+              {index % 2 === 0 ? (
+                <CareerCard item={item} variant="desktop-left" />
+              ) : <div class="h-full pointer-events-none"></div>}
+            </div>
+
+            <div class="md:px-6 md:py-0">
+              {index % 2 !== 0 ? (
+                <CareerCard item={item} variant="desktop-right" />
+              ) : <div class="h-full pointer-events-none"></div>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reveal-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  @keyframes revealIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scroll-stat {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-stat.reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script>
+  function revealCards() {
+    const cards = document.querySelectorAll('.scroll-stat');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Array.from(cards).indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('reveal');
+          }, (index % 3) * 150);
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -10px 0px'
+    });
+
+    cards.forEach(card => observer.observe(card));
+  }
+
+  revealCards();
+  document.addEventListener('astro:after-swap', revealCards);
+</script>===== FILE: src/components/career-card.astro =====
+---
+interface Props {
+  item: {
+    period: string;
+    period_en?: string;
+    role: string;
+    role_en?: string;
+    company: string;
+    company_en?: string;
+    description: string;
+    description_en?: string;
+    skills: string[];
+    skills_en?: string[];
+  };
+  variant: 'mobile' | 'desktop-left' | 'desktop-right';
+}
+
+const { item, variant } = Astro.props;
+
+const isLeft = variant === 'desktop-left';
+
+const alignmentClass = isLeft ? "text-right" : "";
+const skillContainerClasses = `flex flex-wrap gap-2 ${isLeft ? 'justify-end' : ''}`;
+
+const periodEn = item.period_en || item.period;
+const roleEn = item.role_en || item.role;
+const companyEn = item.company_en || item.company;
+const descriptionEn = item.description_en || item.description;
+const skillsEn = item.skills_en || item.skills;
+---
+
+<div class={`bg-accent/5 border border-accent/10 p-4 md:p-6 rounded-2xl hover:border-accent/40 transition-all group ${alignmentClass}`}>
+  <div>
+    <span class="font-mono text-xs tracking-widest uppercase text-accent/75">
+      <span class="i18n-fr">{item.period}</span>
+      <span class="i18n-en">{periodEn}</span>
+    </span>
+  </div>
+
+  <h3 class="text-xl font-heading font-bold text-maintext mt-1">
+    <span class="i18n-fr">{item.role}</span>
+    <span class="i18n-en">{roleEn}</span>
+  </h3>
+
+  <p class="text-accent text-sm mb-4">
+    <span class="i18n-fr">{item.company}</span>
+    <span class="i18n-en">{companyEn}</span>
+  </p>
+
+  <p class="text-subtext font-body text-sm leading-relaxed mb-4">
+    <span class="i18n-fr">{item.description}</span>
+    <span class="i18n-en">{descriptionEn}</span>
+  </p>
+
+  <div class={skillContainerClasses}>
+    {item.skills.map((skill: string, index: number) => (
+      <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80 group-hover:border-accent/40 group-hover:text-accent">
+        <span class="i18n-fr">{skill}</span>
+        <span class="i18n-en">{skillsEn[index] || skill}</span>
+      </span>
+    ))}
+  </div>
+</div>===== FILE: src/data/career.json =====
+[
+  {
+    "company": "Spécialité mathématique",
+    "company_en": "Mathematics specialization",
+    "role": "BAC S",
+    "role_en": "French scientific baccalaureate",
+    "period": "Septembre 2019",
+    "period_en": "September 2019",
+    "type": "Examen",
+    "description": "J'ai obtenu mon BAC avec 1 mois de travail après plusieurs années de déscolarisation.",
+    "description_en": "I obtained my baccalaureate with one month of work after several years out of school.",
+    "skills": ["BAC", "Études", "Persévérance"],
+    "skills_en": ["Baccalaureate", "Studies", "Perseverance"]
+  },
+  {
+    "company": "Université Paris-Saclay",
+    "company_en": "Paris-Saclay University",
+    "role": "Étudiant en Physique",
+    "role_en": "Physics student",
+    "period": "Octobre 2019 - Juin 2024",
+    "period_en": "October 2019 - June 2024",
+    "type": "Études",
+    "description": "J'ai suivi des études de Physique, que je n'ai pu continuer au-delà du L2 dû à des raisons de santé. Les options de physique nucléaire que j'ai toujours prises m'ont passionné.",
+    "description_en": "I studied Physics, which I was unable to continue beyond the second year because of health reasons. The nuclear physics electives I consistently chose were a real passion for me.",
+    "skills": ["Études", "Physique", "Université", "Persévérance"],
+    "skills_en": ["Studies", "Physics", "University", "Perseverance"]
+  },
+  {
+    "company": "IUT d'Orsay",
+    "company_en": "IUT d'Orsay",
+    "role": "Étudiant en BUT Informatique",
+    "role_en": "Computer Science BUT student",
+    "period": "Septembre 2024 - Présent",
+    "period_en": "September 2024 - Present",
+    "type": "Études",
+    "description": "Reconversion réussie en informatique, domaine qui me passionne depuis toujours et que j'aime. Je suis le parcours de cybersécurité.",
+    "description_en": "A successful transition into computer science, a field I have always been passionate about and truly enjoy. I am following the cybersecurity track.",
+    "skills": ["Informatique", "Cybersécurité", "Plateau du Moulon", "IUT d'Orsay"],
+    "skills_en": ["Computer Science", "Cybersecurity", "Plateau du Moulon", "IUT d'Orsay"]
+  }
+]===== FILE: src/components/projects.astro =====
+---
+import ProjectCard from './project-card.astro';
+import projectsData from '../data/projects.json';
+---
+
+<section id="projects" class="section-container overflow-hidden">
+  <div class="container mx-auto">
+    <div class="mb-16 project-header">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+          <span class="text-accent">/</span> Projets
+        </h2>
+      <p class="text-subtext font-body text-sm max-w-md">
+        Quelques projets effectués dans un cadre personnel ou scolaire.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projectsData.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Header Initial State */
+  .project-header {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Cards Initial State */
+  .project-card {
+    opacity: 0; /* Ensuring cards start hidden too */
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Shared Revealed State */
+  .project-header.reveal,
+  .project-card.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script>
+  const initProjectReveal = () => {
+    const header = document.querySelector('.project-header');
+    const cards = document.querySelectorAll('.project-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          
+          // Check if the intersecting element is the header
+          if (target.classList.contains('project-header')) {
+            target.classList.add('reveal');
+            observer.unobserve(target);
+          } 
+          // Check if the intersecting element is a project card
+          else if (target.classList.contains('project-card')) {
+            const index = Array.from(cards).indexOf(target);
+            
+            // Stagger effect based on row position (only for cards)
+            setTimeout(() => {
+              target.classList.add('reveal');
+            }, (index % 3) * 150);
+            
+            observer.unobserve(target);
+          }
+        }
+      });
+    }, { 
+      threshold: 0.15, 
+      rootMargin: '0px 0px -10px 0px' 
+    });
+
+    // Observe the header
+    if (header) observer.observe(header);
+    
+    // Observe all cards
+    cards.forEach(card => observer.observe(card));
+  };
+
+  window.addEventListener('load', initProjectReveal);
+
+  // Support for Astro View Transitions
+  document.addEventListener('astro:after-swap', initProjectReveal);
+</script>
+===== FILE: src/components/project-card.astro =====
+---
+import { Icon } from 'astro-icon/components';
+const { project } = Astro.props;
+
+const isSlider = project.images.length > 1;
+---
+
+<div class="project-card group relative bg-accent/5 border border-accent/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500">
+  <div class="aspect-video overflow-hidden relative bg-background/50">
+    <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+    
+    <div class={`w-full h-full relative ${isSlider ? 'image-slider' : ''}`}>
+      {project.images.map((img: string, index: number) => (
+        <img 
+          src={img}
+          alt={`${project.title} screenshot ${index + 1}`}
+          onerror="this.onerror=null;this.src='placeholder.jpeg';"
+          class={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 ${index === 0 ? 'opacity-100 z-0' : 'opacity-0 z-[-1]'}`}
+        />
+      ))}
+    </div>
+    
+    <div class="absolute top-3 right-3 flex gap-2 z-20">
+      {project.platforms.map((p: string) => (
+        <div class="p-1.5 bg-background backdrop-blur-md rounded-lg border border-accent/10 text-maintext">
+          <Icon name={`mdi:${p}`} class="w-4 h-4" />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="p-6 space-y-4">
+    <div class="flex justify-between items-start">
+      <div>
+        <span class="text-accent text-[10px] uppercase tracking-widest font-bold">{project.category}</span>
+        <h3 class="text-xl font-heading font-bold text-maintext mt-1">{project.title}</h3>
+      </div>
+      <!--
+      <a href={project.link} target="_blank" class="text-accent/75 hover:text-accent transition-colors">
+        <Icon name="mdi:open-in-new" class="w-6 h-6" />
+      </a>
+      -->
+    </div>
+
+    <p class="text-subtext text-sm font-body line-clamp-3">
+      {project.description}
+    </p>
+
+    <div class="flex flex-wrap gap-2 pt-2">
+      {project.tech.map((t: string) => (
+        <span class="rounded-md text-[10px] px-2 md:px-4 py-1 bg-accent/5 border border-accent/10 text-accent/80  group-hover:border-accent/40 group-hover:text-accent">
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  function initSliders() {
+    const sliders = document.querySelectorAll('.image-slider');
+    
+    sliders.forEach(slider => {
+      const images = slider.querySelectorAll('img');
+      if (images.length <= 1) return;
+
+      let currentIndex = 0;
+      setInterval(() => {
+        // Hide current
+        images[currentIndex].classList.remove('opacity-100', 'z-0');
+        images[currentIndex].classList.add('opacity-0', 'z-[-1]');
+        
+        // Move to next
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        // Show next
+        images[currentIndex].classList.remove('opacity-0', 'z-[-1]');
+        images[currentIndex].classList.add('opacity-100', 'z-0');
+      }, 3500);
+    });
+  }
+
+  initSliders();
+  document.addEventListener('astro:after-swap', initSliders);
+</script>
+
+<style is:global>
+  .project-card {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+    transition: 
+      opacity 0.8s ease-out, 
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 0.8s;
+    will-change: transform, opacity;
+  }
+
+  .project-card.reveal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+</style>===== FILE: src/data/projects.json =====
+[
+  {
+    "title": "Projet scolaire d'interaction graphique avec une base de données",
+    "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher.",
+    "images": ["JavaDBhomepage.png"],
+    "tech": ["Java", "SQL"],
+    "platforms": ["desktop-tower-monitor"],
+    "link": "",
+    "category": "Projet scolaire"
+  },
+  {
+    "title": "Projet scolaire jeux vidéo",
+    "description": "Micro-jeux 2D avec niveaux et améliorations",
+    "images": ["videogamewalking.gif"],
+    "tech": ["cpp"],
+    "platforms": ["desktop-tower-monitor"],
+    "link": "",
+    "category": "Projet scolaire"
+  },
+  {
+    "title": "Projet scolaire de page web",
+    "description": "Page web pour parc d'attraction, j'ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.",
+    "images": ["css-table-templates.jpg", "1.3-HTML-table-CSS.png"],
+    "tech": ["html", "CSS"],
+    "platforms": ["web"],
+    "link": "",
+    "category": "Projet scolaire"
+  },
+  {
+    "title": "Base de données personnelle",
+    "description": "Base de données à utilisation personnelle pour trier mes habits, mes tenues et les plus utilisés. Visuel fourni à titre démonstratif.",
+    "images": ["3823.ListView.png"],
+    "tech": ["SQL", "C#"],
+    "platforms": ["desktop-tower-monitor"],
+    "link": "",
+    "category": "Loisir"
+  }
+]
+===== FILE: src/components/tech.astro =====
+---
+import { Icon } from 'astro-icon/components';
+import localTechData from '../data/tech.json';
+
+interface Skill {
+  name: string;
+  level: number;
+  icon: string;
+}
+
+interface Category {
+  title: string;
+  skills: Skill[];
+}
+
+const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+let categories: Category[];
+
+try {
+  if (BASE_URL) {
+    const response = await fetch(`${BASE_URL}/tech`);
+    const data = await response.json();
+    categories = data.categories;
+  } else {
+    categories = localTechData.categories;
+  }
+} catch {
+  categories = localTechData.categories;
+}
+---
+
+<section id="tech" class="section-container overflow-hidden">
+  <div class="container mx-auto">
+    <div class="tech-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+          <span class="text-accent">/</span> Compétences
+        </h2>
+        <p class="text-subtext font-body text-sm max-w-md">
+          Un aperçu de mes compétences, organisées par domaine.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-4 p-3 rounded-xl bg-accent/5 border border-accent/10 backdrop-blur-sm">
+        {[
+          { label: "Utilisation autonome", level: 3 },
+          { label: "Connaissances pratiques", level: 2 },
+          { label: "Connaissances de base", level: 1 }
+        ].map((item, index) => (
+          <div class={`flex items-center gap-2 ${index > 0 ? 'md:border-l md:border-white/10 md:pl-4' : ''}`}>
+            <div class="flex gap-0.5">
+              {[1, 2, 3].map((star) => (
+                <Icon 
+                  name="mdi:star" 
+                  class={`w-3 h-3 ${star <= item.level ? 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]' : 'text-gray-600'}`} 
+                />
+              ))}
+            </div>
+            <span class="text-[10px] uppercase tracking-wider text-subtext">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="space-y-10">
+      {categories.map((category) => (
+        <div class="space-y-3">
+          <h3 class="text-maintext font-body text-[11px] uppercase tracking-[0.4em] ml-1">
+            {category.title}
+          </h3>
+          
+          <div class="grid grid-cols-[repeat(auto-fill,minmax(13rem,1fr))] gap-5 sm:gap-8">
+            {category.skills.map((skill) => (
+              /* 'skill-card' and 'opacity-0' class already maintain reveal animation */
+              <div class="skill-card opacity-0 group relative flex items-stretch min-h-14 rounded-xl bg-accent/5 border border-accent/15 hover:border-accent/40 hover:bg-accent/10 transition-all duration-300">
+                
+                <div class="shrink-0 w-12 flex items-center justify-center rounded-l-xl bg-accent/15 transition-colors group-hover:bg-accent/20">
+                  <Icon name={skill.icon} class="w-7 h-7 group-hover:scale-110 transition-transform" />
+                </div>
+                
+                <div class="flex min-w-0 items-center px-3 py-2 w-full">
+                  <span class="min-w-0 font-body text-maintext/90 text-[13px] leading-tight font-medium tracking-tight line-clamp-2">
+                    {skill.name}
+                  </span>
+                </div>
+
+                <div class="absolute -bottom-2 -right-1 z-10 flex gap-0 px-1 py-0.5 bg-container rounded-md border border-white/10 shadow-lg group-hover:border-accent/30 transition-all">
+                  {[1, 2, 3].map((star) => (
+                    <Icon 
+                      name="mdi:star" 
+                      class={`w-3 h-3 transition-colors duration-500 ${
+                        star <= skill.level 
+                          ? 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]' 
+                          : 'text-gray-600'
+                      }`} 
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Header Initial State */
+  .tech-header {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Initial state of the card */
+  .skill-card {
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Shared Revealed state */
+  .tech-header.reveal,
+  .skill-card.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script>
+  function revealSkills() {
+    const header = document.querySelector('.tech-header');
+    const cards = document.querySelectorAll('.skill-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          
+          // Check if the intersecting element is the header
+          if (target.classList.contains('tech-header')) {
+            target.classList.add('reveal');
+            observer.unobserve(target);
+          }
+          // Check if the intersecting element is a skill card
+          else if (target.classList.contains('skill-card')) {
+            // Add a slight delay based on the card's position to create a wave effect
+            const index = Array.from(cards).indexOf(target);
+            setTimeout(() => {
+              target.classList.add('reveal');
+            }, (index % 6) * 50); // Delay resets every row for a clean staggered look
+            
+            observer.unobserve(target);
+          }
+        }
+      });
+    }, {
+      threshold: 0.1, // Trigger when 10% of the card is visible
+      rootMargin: '0px 0px -50px 0px' // Trigger slightly before it hits the viewport
+    });
+
+    // Observe the header
+    if (header) observer.observe(header);
+
+    // Observe all cards
+    cards.forEach(card => observer.observe(card));
+  }
+
+  // Runs on initial load
+  revealSkills();
+  
+  // Necessary for Astro View Transitions if you use them
+  document.addEventListener('astro:after-swap', revealSkills);
+</script>
+===== FILE: src/data/tech.json =====
+{
+  "categories": [
+    {
+      "title": "Cybersécurité",
+      "skills": [
+        { "name": "Gestion de réseaux", "level": 3, "icon": "mdi:access-point-network" },
+        { "name": "Sécurité réseaux", "level": 3, "icon": "mdi:console-network-outline" },
+        { "name": "Pare-feu", "level": 2, "icon": "mdi:wall-fire" },
+        { "name": "Utilisation Linux", "level": 2, "icon": "devicon-plain:linux" },
+        { "name": "Scripts Bash", "level": 1, "icon": "mdi:bash" }
+      ]
+    },
+    {
+      "title": "Informatique",
+      "skills": [
+        { "name": "Développement (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
+        { "name": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
+        { "name": "Gestion de bases de données/SQL", "level": 2, "icon": "mdi:database-search" }
+      ]
+    },
+    {
+      "title": "Compétences humaines",
+      "skills": [
+        { "name": "Anglais C2", "level": 3, "icon": "mdi:translate" },
+        { "name": "Sérieux", "level": 3, "icon": "mdi:account-star" },
+        { "name": "Relationnel", "level": 2, "icon": "mdi:account-multiple-check" },
+        { "name": "Consciencieux", "level": 2, "icon": "mdi:account-check" },
+        { "name": "Curieux", "level": 2, "icon": "mdi:account-search" }
+      ]
+    },
+    {
+      "title": "Autres compétences",
+      "skills": [
+        { "name": "Physique nucléaire", "level": 3, "icon": "mdi:atom" },
+        { "name": "Physique", "level": 2, "icon": "mdi:magnet-on" },
+        { "name": "Volleyball", "level": 1, "icon": "mdi:volleyball" },
+        { "name": "Droit", "level": 1, "icon": "mdi:scale-balance" }
+      ]
+    }
+  ]
+}
+===== FILE: src/components/contact.astro =====
+---
+import { Icon } from 'astro-icon/components';
+import localData from '../data/home.json';
+
+---
+
+<section id="contact" class="section-container">
+  <div class="container mx-auto">
+    <div class="space-y-12">
+      <div class="contact-header opacity-0 mb-16">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
+            <span class="text-accent">/</span> Me contacter
+          </h2>
+        <p class="text-subtext font-body text-sm max-w-md">
+          N'hésitez pas à me contacter. Je reste disponible pour échanger au sujet de nouveaux projets et d'opportunités professionnelles.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        {localData.socials
+        .filter((social) => social.showInContact && social.url && social.url !== "#" && social.url !== "")
+        .map((social) => (
+          <!-- Added 'contact-card' and 'opacity-0' here -->
+          <a 
+            href={social.url} 
+            target="_blank" 
+            class="contact-card opacity-0 group p-8 bg-accent/5 border border-accent/10 rounded-2xl hover:border-accent/40 hover:bg-accent/10 transition-all duration-300"
+          >
+            <Icon 
+              name={social.icon} 
+              class="w-10 h-10 text-accent mb-4 mx-auto group-hover:scale-110 transition-transform" 
+            />
+            <h3 class="text-maintext font-bold mb-1">{social.name}</h3>
+            <p class="text-subtext text-xs truncate px-2">
+              {social.url.replace('https://', '').replace('mailto:', '').replace('wa.me/', '+')}
+            </p>
+          </a>
+        ))}
+      </div>
+
+      <!-- /* FOOTER */ -->
+      <div class="contact-footer opacity-0 pt-20 border-t border-white/5">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-subtext text-sm font-body order-2 md:order-1">
+            {localData.name} © 2026
+          </p>
+          <!--
+          <div class="flex items-center flex-wrap justify-center gap-3 text-subtext text-xs font-body order-1 md:order-2">
+            <span>Built using </span>
+            <a 
+              href="https://astro.build/themes/details/career-portfolio-data-driven-astro-ssg/" 
+              target="_blank" 
+              class="text-maintext hover:text-accent transition-colors underline decoration-white/30 underline-offset-4 hover:decoration-accent"
+            >
+              Career Portfolio Theme
+            </a>
+            <span class="text-subtext hidden sm:inline">•</span>
+            <div class="flex gap-4">
+              <a href="https://astro.build" target="_blank" class="hover:text-accent transition-colors flex items-center gap-1.5 group">
+                <Icon name="skill-icons:astro" class="w-4 h-4 group-hover:drop-shadow-[0_0_5px_var(--color-accent)]" />
+                <span>Astro</span>
+              </a>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Header & Footer Initial State */
+  .contact-header,
+  .contact-footer {
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Cards Initial State */
+  .contact-card {
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Shared Revealed State */
+  .contact-header.reveal,
+  .contact-card.reveal,
+  .contact-footer.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1);
+  }
+</style>
+
+<script>
+  const revealContact = () => {
+    const header = document.querySelector('.contact-header');
+    const footer = document.querySelector('.contact-footer');
+    const cards = document.querySelectorAll('.contact-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+
+          if (target.classList.contains('contact-card')) {
+            const index = Array.from(cards).indexOf(target);
+            // Stagger effect for the 4-column grid
+            setTimeout(() => {
+              target.classList.add('reveal');
+            }, (index % 4) * 150);
+          } else {
+            // Header and Footer reveal immediately
+            target.classList.add('reveal');
+          }
+          
+          observer.unobserve(target);
+        }
+      });
+    }, { 
+      threshold: 0.15,
+      rootMargin: '0px 0px -10px 0px'
+    });
+
+    if (header) observer.observe(header);
+    if (footer) observer.observe(footer);
+    cards.forEach(card => observer.observe(card));
+  }
+  
+  // Runs on initial load
+  window.addEventListener('load', revealContact);
+  
+  // Support for Astro View Transitions
+  document.addEventListener('astro:after-swap', revealContact);
+</script>===== FILE: src/pages/index.astro =====
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/nav.astro";
+import Home from "../components/home.astro";
+import Tech from "../components/tech.astro";
+import Projects from "../components/projects.astro";
+import Contact from "../components/contact.astro";
+import Career from "../components/career.astro";
+import localData from '../data/home.json';
+import "../styles/global.css";
+
+interface ProfileData {
+  webpageTitle: string;
+}
+
+const isApiLive = import.meta.env.PROD; // Auto true in production
+const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+
+let data: ProfileData; // data as ProfileData
+
+if (isApiLive && BASE_URL) {
+  try {
+    const response = await fetch(`${BASE_URL}/home`);
+    if (!response.ok) throw new Error('Network response was not ok');
+    data = await response.json();
+  } catch (error) {
+    console.error("API Fetch failed, falling back to mock data", error);
+    data = localData as ProfileData;
+  }
+} else {
+  data = localData as ProfileData;
+}
+
+const { webpageTitle } = data;
+---
+
+<Layout title={webpageTitle}>
+  	<Nav />
+	<Home />
+	<Career />
+	<Projects />
+	<Tech />
+	<Contact />
+</Layout>

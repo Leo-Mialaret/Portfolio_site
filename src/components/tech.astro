@@ -4,21 +4,24 @@ import localTechData from '../data/tech.json';
 
 interface Skill {
   name: string;
+  name_en?: string;
   level: number;
   icon: string;
 }
 
 interface Category {
   title: string;
+  title_en?: string;
   skills: Skill[];
 }
 
-const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
+const BASEURL = import.meta.env.PUBLIC_API_BASEURL;
+
 let categories: Category[];
 
 try {
-  if (BASE_URL) {
-    const response = await fetch(`${BASE_URL}/tech`);
+  if (BASEURL) {
+    const response = await fetch(`${BASEURL}/tech`);
     const data = await response.json();
     categories = data.categories;
   } else {
@@ -34,29 +37,35 @@ try {
     <div class="tech-header flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
       <div>
         <h2 class="text-3xl md:text-4xl font-heading font-bold text-maintext mb-2 flex items-center gap-4">
-          <span class="text-accent">/</span> Compétences
+          <span class="text-accent">/</span>
+          <span class="i18n-fr">Compétences</span>
+          <span class="i18n-en">Skills</span>
         </h2>
         <p class="text-subtext font-body text-sm max-w-md">
-          Un aperçu de mes compétences, organisées par domaine.
+          <span class="i18n-fr">Un aperçu de mes compétences, organisées par domaine.</span>
+          <span class="i18n-en">An overview of my skills, organised by area.</span>
         </p>
       </div>
 
       <div class="flex flex-wrap gap-4 p-3 rounded-xl bg-accent/5 border border-accent/10 backdrop-blur-sm">
         {[
-          { label: "Utilisation autonome", level: 3 },
-          { label: "Connaissances pratiques", level: 2 },
-          { label: "Connaissances de base", level: 1 }
+          { labelFr: "Utilisation autonome", labelEn: "Independent use", level: 3 },
+          { labelFr: "Connaissances pratiques", labelEn: "Practical knowledge", level: 2 },
+          { labelFr: "Connaissances de base", labelEn: "Basic knowledge", level: 1 }
         ].map((item, index) => (
           <div class={`flex items-center gap-2 ${index > 0 ? 'md:border-l md:border-white/10 md:pl-4' : ''}`}>
             <div class="flex gap-0.5">
               {[1, 2, 3].map((star) => (
-                <Icon 
-                  name="mdi:star" 
-                  class={`w-3 h-3 ${star <= item.level ? 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]' : 'text-gray-600'}`} 
+                <Icon
+                  name="mdi:star"
+                  class={`w-3 h-3 ${star <= item.level ? 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]' : 'text-gray-600'}`}
                 />
               ))}
             </div>
-            <span class="text-[10px] uppercase tracking-wider text-subtext">{item.label}</span>
+            <span class="text-[10px] uppercase tracking-wider text-subtext">
+              <span class="i18n-fr">{item.labelFr}</span>
+              <span class="i18n-en">{item.labelEn}</span>
+            </span>
           </div>
         ))}
       </div>
@@ -66,33 +75,29 @@ try {
       {categories.map((category) => (
         <div class="space-y-3">
           <h3 class="text-maintext font-body text-[11px] uppercase tracking-[0.4em] ml-1">
-            {category.title}
+            <span class="i18n-fr">{category.title}</span>
+            <span class="i18n-en">{category.title_en || category.title}</span>
           </h3>
-          
+
           <div class="grid grid-cols-[repeat(auto-fill,minmax(13rem,1fr))] gap-5 sm:gap-8">
             {category.skills.map((skill) => (
-              /* 'skill-card' and 'opacity-0' class already maintain reveal animation */
               <div class="skill-card opacity-0 group relative flex items-stretch min-h-14 rounded-xl bg-accent/5 border border-accent/15 hover:border-accent/40 hover:bg-accent/10 transition-all duration-300">
-                
                 <div class="shrink-0 w-12 flex items-center justify-center rounded-l-xl bg-accent/15 transition-colors group-hover:bg-accent/20">
                   <Icon name={skill.icon} class="w-7 h-7 group-hover:scale-110 transition-transform" />
                 </div>
-                
+
                 <div class="flex min-w-0 items-center px-3 py-2 w-full">
                   <span class="min-w-0 font-body text-maintext/90 text-[13px] leading-tight font-medium tracking-tight line-clamp-2">
-                    {skill.name}
+                    <span class="i18n-fr">{skill.name}</span>
+                    <span class="i18n-en">{skill.name_en || skill.name}</span>
                   </span>
                 </div>
 
                 <div class="absolute -bottom-2 -right-1 z-10 flex gap-0 px-1 py-0.5 bg-container rounded-md border border-white/10 shadow-lg group-hover:border-accent/30 transition-all">
                   {[1, 2, 3].map((star) => (
-                    <Icon 
-                      name="mdi:star" 
-                      class={`w-3 h-3 transition-colors duration-500 ${
-                        star <= skill.level 
-                          ? 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]' 
-                          : 'text-gray-600'
-                      }`} 
+                    <Icon
+                      name="mdi:star"
+                      class={`w-3 h-3 transition-colors duration-500 ${star <= skill.level ? 'text-accent drop-shadow-[0_0_3px_var(--color-accent)]' : 'text-gray-600'}`}
                     />
                   ))}
                 </div>
@@ -106,20 +111,17 @@ try {
 </section>
 
 <style>
-  /* Header Initial State */
   .tech-header {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Initial state of the card */
   .skill-card {
     transform: translateY(20px) scale(0.95);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Shared Revealed state */
   .tech-header.reveal,
   .skill-card.reveal {
     opacity: 1 !important;
@@ -131,44 +133,33 @@ try {
   function revealSkills() {
     const header = document.querySelector('.tech-header');
     const cards = document.querySelectorAll('.skill-card');
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const target = entry.target;
-          
-          // Check if the intersecting element is the header
+          const target = entry.target as HTMLElement;
+
           if (target.classList.contains('tech-header')) {
             target.classList.add('reveal');
             observer.unobserve(target);
-          }
-          // Check if the intersecting element is a skill card
-          else if (target.classList.contains('skill-card')) {
-            // Add a slight delay based on the card's position to create a wave effect
+          } else if (target.classList.contains('skill-card')) {
             const index = Array.from(cards).indexOf(target);
             setTimeout(() => {
               target.classList.add('reveal');
-            }, (index % 6) * 50); // Delay resets every row for a clean staggered look
-            
+            }, (index % 6) * 50);
             observer.unobserve(target);
           }
         }
       });
     }, {
-      threshold: 0.1, // Trigger when 10% of the card is visible
-      rootMargin: '0px 0px -50px 0px' // Trigger slightly before it hits the viewport
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     });
 
-    // Observe the header
     if (header) observer.observe(header);
-
-    // Observe all cards
-    cards.forEach(card => observer.observe(card));
+    cards.forEach((card) => observer.observe(card));
   }
 
-  // Runs on initial load
   revealSkills();
-  
-  // Necessary for Astro View Transitions if you use them
   document.addEventListener('astro:after-swap', revealSkills);
 </script>

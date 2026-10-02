@@ -1,38 +1,50 @@
 [
   {
-    "title": "Projet scolaire d'interaction graphique avec une base de données",
-    "description": "Une application facile d'utilisation, permettant simplement et grossièrement d'ajouter des informations ou de les chercher.",
+    "title": "Projet scolaire d’interaction graphique avec une base de données",
+    "title_en": "Academic database interface project",
+    "description": "Une application facile d’utilisation, permettant simplement et grossièrement d’ajouter des informations ou de les chercher.",
+    "description_en": "A simple, user-friendly application for adding and searching information.",
     "images": ["JavaDBhomepage.png"],
     "tech": ["Java", "SQL"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
-    "category": "Projet scolaire"
+    "category": "Projet scolaire",
+    "category_en": "Academic project"
   },
   {
     "title": "Projet scolaire jeux vidéo",
+    "title_en": "Academic game project",
     "description": "Micro-jeux 2D avec niveaux et améliorations",
+    "description_en": "A 2D game project with level progression and upgrade mechanics.",
     "images": ["videogamewalking.gif"],
     "tech": ["cpp"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
-    "category": "Projet scolaire"
+    "category": "Projet scolaire",
+    "category_en": "Academic project"
   },
   {
     "title": "Projet scolaire de page web",
-    "description": "Page web pour parc d'attraction, j'ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.",
+    "title_en": "Academic web design project",
+    "description": "Page web pour parc d’attraction, j’ai fait une animation en utilisant les tableaux du HTML/CSS. Visuel fourni à titre démonstratif.",
+    "description_en": "A themed web page for an amusement park, including an animation created with HTML and CSS tables. Visual provided for demonstration purposes.",
     "images": ["css-table-templates.jpg", "1.3-HTML-table-CSS.png"],
     "tech": ["html", "CSS"],
     "platforms": ["web"],
     "link": "",
-    "category": "Projet scolaire"
+    "category": "Projet scolaire",
+    "category_en": "Academic project"
   },
   {
     "title": "Base de données personnelle",
+    "title_en": "Personal database",
     "description": "Base de données à utilisation personnelle pour trier mes habits, mes tenues et les plus utilisés. Visuel fourni à titre démonstratif.",
+    "description_en": "A personal database used to organise my clothes, outfits, and most frequently worn items.",
     "images": ["3823.ListView.png"],
     "tech": ["SQL", "C#"],
     "platforms": ["desktop-tower-monitor"],
     "link": "",
-    "category": "Loisir"
+    "category": "Loisir",
+    "category_en": "Personal project"
   }
 ]

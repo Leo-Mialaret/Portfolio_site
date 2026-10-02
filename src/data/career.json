@@ -1,26 +1,41 @@
 [
   {
     "company": "Spécialité mathématique",
+    "company_en": "Mathematics specialization",
     "role": "BAC S",
+    "role_en": "Scientific Baccalaureate",
     "period": "Septembre 2019",
+    "period_en": "September 2019",
     "type": "Examen",
-    "description": "J'ai obtenu mon BAC avec 1 mois de travail après plusieurs années de déscolarisation.",
-    "skills": ["BAC", "Études", "Persévérance"]
+    "description": "J’ai obtenu mon BAC avec 1 mois de travail après plusieurs années de déscolarisation.",
+    "description_en": "I earned my baccalaureate after one month of preparation, following several years away from formal schooling.",
+    "skills": ["BAC", "Études", "Persévérance"],
+    "skills_en": ["Baccalaureate", "Studies", "Perseverance"]
   },
   {
     "company": "Université Paris-Saclay",
+    "company_en": "Paris-Saclay University",
     "role": "Étudiant en Physique",
+    "role_en": "Physics student",
     "period": "Octobre 2019 - Juin 2024",
+    "period_en": "October 2019 - June 2024",
     "type": "Études",
-    "description": "J'ai suivi des études de Physique, que je n'ai pu continuer au-delà du L2 dû à des raisons de santé. Les options de physique nucléaire que j'ai toujours prises m'ont passionné.",
-    "skills": ["Études", "Physique", "Université", "Persévérance"]
+    "description": "J’ai suivi des études de Physique, que je n’ai pu continuer au-delà du L2 dû à des raisons de santé. Les options de physique nucléaire que j’ai toujours prises m’ont passionné.",
+    "description_en": "I studied Physics, which I was unable to continue beyond the second year because of health reasons. The nuclear physics electives I consistently chose were a real passion for me.",
+    "skills": ["Études", "Physique", "Université", "Persévérance"],
+    "skills_en": ["Studies", "Physics", "University", "Perseverance"]
   },
   {
-    "company": "IUT d'Orsay",
+    "company": "IUT d’Orsay",
+    "company_en": "IUT d’Orsay",
     "role": "Étudiant en BUT Informatique",
+    "role_en": "Computer Science BUT student",
     "period": "Septembre 2024 - Présent",
+    "period_en": "September 2024 - Present",
     "type": "Études",
-    "description": "Reconversion réussie en informatique, domaine qui me passionne depuis toujours et que j'aime. Je suis le parcours de cybersécurité.",
-    "skills": ["Informatique", "Cybersécurité", "Plateau du Moulon", "IUT d'Orsay"]
+    "description": "Reconversion réussie en informatique, domaine qui me passionne depuis toujours et que j’aime. Je suis le parcours de cybersécurité.",
+    "description_en": "A successful transition into computer science, a field I have always been passionate about and truly enjoy. I am following the cybersecurity track.",
+    "skills": ["Informatique", "Cybersécurité", "Plateau du Moulon", "IUT d’Orsay"],
+    "skills_en": ["Computer Science", "Cybersecurity", "Plateau du Moulon", "IUT d’Orsay"]
   }
 ]
