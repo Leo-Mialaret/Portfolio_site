@@ -7,13 +7,13 @@
         { "name": "Gestion de réseaux", "name_en": "Network management", "level": 3, "icon": "mdi:access-point-network" },
         { "name": "Sécurité réseaux", "name_en": "Network security", "level": 3, "icon": "mdi:console-network-outline" },
         { "name": "Pare-feu", "name_en": "Firewall", "level": 2, "icon": "mdi:wall-fire" },
-        { "name": "Utilisation Linux", "name_en": "Linux usage", "level": 2, "icon": "devicon-plain:linux" },
+        { "name": "Utilisation Linux", "name_en": "Linux", "level": 2, "icon": "devicon-plain:linux" },
         { "name": "Scripts Bash", "name_en": "Bash scripting", "level": 1, "icon": "mdi:bash" }
       ]
     },
     {
       "title": "Informatique",
-      "title_en": "Computer science",
+      "title_en": "Computing",
       "skills": [
         { "name": "Développement (C++, C#, Java, Python)", "name_en": "Development (C++, C#, Java, Python)", "level": 3, "icon": "skill-icons:cpp" },
         { "name": "HTML/CSS/Astro", "name_en": "HTML/CSS/Astro", "level": 1, "icon": "skill-icons:html" },
@@ -24,11 +24,11 @@
       "title": "Compétences humaines",
       "title_en": "Soft skills",
       "skills": [
-        { "name": "Anglais C2", "name_en": "English C2", "level": 3, "icon": "mdi:translate" },
+        { "name": "Anglais C2", "name_en": "English (C2)", "level": 3, "icon": "mdi:translate" },
         { "name": "Sérieux", "name_en": "Reliable", "level": 3, "icon": "mdi:account-star" },
         { "name": "Relationnel", "name_en": "Interpersonal skills", "level": 2, "icon": "mdi:account-multiple-check" },
         { "name": "Consciencieux", "name_en": "Thorough", "level": 2, "icon": "mdi:account-check" },
-        { "name": "Curieux", "name_en": "Curiosity", "level": 2, "icon": "mdi:account-search" }
+        { "name": "Curieux", "name_en": "Curious", "level": 2, "icon": "mdi:account-search" }
       ]
     },
     {
